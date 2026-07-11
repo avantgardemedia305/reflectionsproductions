@@ -90,16 +90,22 @@ footer .f-social a svg{vertical-align:-4px;margin-right:9px}
 .testi .t-tag{display:inline-block;font:600 9.5px/1 Archivo,Arial,sans-serif;letter-spacing:.14em;color:#FF6B4A;border:1px dashed rgba(255,107,74,.5);padding:5px 8px;margin-bottom:14px}
 .testi blockquote{margin:0 0 14px;font-size:15px;line-height:1.65;color:rgba(244,239,230,.85)}
 .testi figcaption{font-size:12.5px;letter-spacing:.06em;color:rgba(244,239,230,.5);text-transform:uppercase}
-.ig-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.ig-tile{display:block;aspect-ratio:1;overflow:hidden}
+.ig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.ig-tile{display:block;aspect-ratio:1;overflow:hidden;position:relative}
+.ig-ol{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#F4EFE6;background:rgba(12,20,20,.45);opacity:0;transition:.25s}
+.ig-tile:hover .ig-ol{opacity:1}
+.ig-reel{background:linear-gradient(145deg,#135E54,#0C1414);border:1px solid rgba(63,167,150,.4);display:flex;align-items:center;justify-content:center;text-decoration:none}
+.igr-in{text-align:center}
+.igr-play{display:inline-flex;width:52px;height:52px;border-radius:50%;background:#FF6B4A;color:#0C1414;align-items:center;justify-content:center;font-size:18px;margin-bottom:12px}
+.igr-t{display:block;font-family:'Archivo Black',Arial,sans-serif;font-size:18px;line-height:1.25;color:#F4EFE6}
+.igr-s{display:block;font-size:11.5px;letter-spacing:.08em;color:rgba(244,239,230,.55);margin-top:8px}
+.ig-ctarow{display:flex;align-items:center;gap:22px;margin-top:22px;flex-wrap:wrap}
 .ig-tile img{width:100%;height:100%;object-fit:cover;transition:.35s;filter:saturate(.95)}
 .ig-tile:hover img{transform:scale(1.05)}
-.ig-embed{min-height:320px}
-.ig-embed iframe{margin:0 !important}
 .ig-cta{border:1px solid rgba(63,167,150,.3);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:16px;padding:24px;background:rgba(19,94,84,.08)}
 .ig-cta p{font-family:'Archivo Black',Arial,sans-serif;font-size:18px;line-height:1.35;margin:0;color:var(--sand)}
 .ig-others{font-size:13px}.ig-others a{color:var(--teal);text-decoration:none}
-@media(max-width:900px){.testi-grid{grid-template-columns:1fr}.ig-row{grid-template-columns:1fr}.ig-tile{max-height:340px}}
+@media(max-width:900px){.testi-grid{grid-template-columns:1fr}.ig-grid{grid-template-columns:1fr 1fr}}
 </style>
 <style>
 .date-check{border:1px solid rgba(63,167,150,.35);background:rgba(19,94,84,.1);padding:30px 32px}
@@ -109,6 +115,27 @@ footer .f-social a svg{vertical-align:-4px;margin-right:9px}
 .dc-fields label{display:flex;flex-direction:column;gap:7px;font:600 11px/1 Archivo,Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.65)}
 .dc-fields input,.dc-fields select{background:#0C1414;border:1px solid rgba(63,167,150,.4);color:#F4EFE6;padding:13px 14px;font:400 16px/1 Archivo,Arial,sans-serif;color-scheme:dark}
 @media(max-width:900px){.dc-fields{grid-template-columns:1fr}}
+</style>
+<style>
+.nav-call{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid rgba(63,167,150,.45);border-radius:50%;color:#3FA796;margin-right:12px;transition:.15s}
+.nav-call:hover{background:#3FA796;color:#0C1414}
+@media(max-width:700px){.nav-call{margin-right:8px}}
+/* nav-tighten */
+.nav-links a{white-space:nowrap}
+.nav-social{margin:0 12px 0 4px;gap:11px}
+@media(max-width:1250px){.nav-links{gap:18px}.nav-links a{font-size:12.5px}}
+</style>
+<style>
+.reel-frame{position:relative;border:1px solid rgba(63,167,150,.35);background:#000}
+.reel-frame video{width:100%;display:block;aspect-ratio:2/1;object-fit:cover;background:#000}
+.reel-play{position:absolute;inset:0;width:100%;background:linear-gradient(to top,rgba(12,20,20,.55),rgba(12,20,20,.1));border:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;transition:.25s}
+.reel-play:hover .rp-btn{transform:scale(1.08)}
+.rp-btn{width:86px;height:86px;border-radius:50%;background:#FF6B4A;color:#0C1414;display:flex;align-items:center;justify-content:center;font-size:30px;transition:.2s;box-shadow:0 18px 50px rgba(255,107,74,.35)}
+.rp-txt{font:600 12px/1 Archivo,Arial,sans-serif;letter-spacing:.22em;color:#F4EFE6}
+.reel-play.off{opacity:0;pointer-events:none}
+.reel-bars{position:absolute;left:0;right:0;bottom:-14px;display:flex;flex-direction:column;gap:3px}
+.reel-bars i{height:3px;background:#3FA796}
+.reel-bars i:nth-child(1){width:60%}.reel-bars i:nth-child(2){width:42%;opacity:.6}.reel-bars i:nth-child(3){width:27%;opacity:.35}.reel-bars i:nth-child(4){width:14%;opacity:.18}
 </style>
 </head>
 <body>
@@ -141,14 +168,15 @@ footer .f-social a svg{vertical-align:-4px;margin-right:9px}
       <a href="stages/index.html">Stage Fleet</a><a href="production/index.html">Production</a><a href="rates.html">Rates</a><a href="work/index.html">Our Work</a><a href="about.html">About</a>
     </div>
     <span class="nav-social" aria-label="Social media"><a class="f-social-a" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.3.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.3C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.4-.6.7-.8 1.2-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.4.4.7.6 1.2.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.4.6-.7.8-1.2.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.4-.4-.7-.6-1.2-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 1.8a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2zm5.1-2.9a1.1 1.1 0 1 1 0 2.3 1.1 1.1 0 0 1 0-2.3z"/></svg></a><a class="f-social-a" href="https://www.facebook.com/ReflectionsProductions/" target="_blank" rel="noopener" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a><a class="f-social-a" href="https://www.youtube.com/@reflectionsproductions8660" target="_blank" rel="noopener" target="_blank" rel="noopener" aria-label="Youtube"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12c0 1.9.2 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.3-1.9.5-3.9.5-5.8s-.2-3.9-.5-5.8zM9.5 15.6V8.4L15.8 12l-6.3 3.6z"/></svg></a><a class="f-social-a" href="https://x.com/Reflectionsprod" target="_blank" rel="noopener" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M18.2 2h3.3l-7.3 8.4L22.8 22h-6.7l-5.3-6.9L4.8 22H1.5l7.8-9L1.2 2h6.9l4.8 6.3L18.2 2zm-1.2 18h1.8L6.9 3.9H4.9L17 20z"/></svg></a></span>
-    <a class="btn btn-coral" href="quote.html">Get a Quote</a>
+    <a class="nav-call" href="tel:+17865042369" aria-label="Call Reflections Productions: 786-504-2369"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.5-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg></a>
+    <a class="btn btn-coral" href="quote.html">Request a Quote</a>
     <button class="nav-burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><i></i><i></i><i></i></button>
   </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   <a href="index.html">Home</a>
   <a href="stages/index.html">Stage Fleet</a><a href="production/index.html">Production</a><a href="rates.html">Rates</a><a href="work/index.html">Our Work</a><a href="about.html">About</a>
-  <a href="quote.html" class="btn btn-coral">Get a Quote</a>
+  <a href="quote.html" class="btn btn-coral">Request a Quote</a>
 </div>
 <header class="hero" id="top">
   <div class="hero-bg" style="background:url('assets/video/hialeah-poster.jpg') center 38%/cover no-repeat">
@@ -160,7 +188,7 @@ footer .f-social a svg{vertical-align:-4px;margin-right:9px}
     </video>
   </div>
   <div class="hero-in" id="main">
-    <p class="eyebrow rv"><span class="wl" aria-hidden="true"><i></i><i></i><i></i></span> South Florida's Creative Source &nbsp;&middot;&nbsp; Est. 1975</p>
+    <p class="eyebrow rv"><span class="wl" aria-hidden="true"><i></i><i></i><i></i></span> The Stage Behind South Florida's Biggest Nights &nbsp;&middot;&nbsp; Est. 1975</p>
     <h1 class="mirror rv" data-d="1">
       <span class="face"><span class="l1">Fifty Years</span><br><span class="l2">On Stage</span></span>
       <span class="waterrule" aria-hidden="true"></span>
@@ -170,7 +198,6 @@ footer .f-social a svg{vertical-align:-4px;margin-right:9px}
     <div class="ctas rv" data-d="3">
       <a class="btn btn-coral" href="quote.html">Get a Quote</a>
       <a class="btn btn-ghost" href="#fleet">See the Fleet</a>
-      <button class="btn btn-ghost watch-btn" id="watch-sound" type="button" aria-haspopup="dialog">&#9654;&#xFE0E; Watch with Sound</button>
     </div>
     <div class="est" aria-hidden="true"><span class="n">PRINCETON&nbsp;&middot;&nbsp;FLORIDA&nbsp;&middot;&nbsp;SINCE&nbsp;1975</span></div>
   </div>
@@ -385,6 +412,27 @@ footer .f-social a svg{vertical-align:-4px;margin-right:9px}
   </div>
 </section>
 
+<section class="band" id="reel" aria-label="Watch the reel">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left rv">
+        <p class="kicker"><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span> Thirty Seconds Over the 4th of July</p>
+        <h2>Watch the<br><span class="ghost">Reel</span></h2>
+      </div>
+      <p class="right rv" data-d="1">Their own drone, flying the Hialeah build as the fireworks go — <b>sound on.</b> This is what &ldquo;the stage behind South Florida&rsquo;s biggest nights&rdquo; looks like from above.</p>
+    </div>
+    <div class="reel-frame rv" data-d="1">
+      <video id="reel-video" poster="assets/video/hialeah-poster.jpg" preload="none" playsinline>
+        <source src="assets/video/hialeah-drone-full-audio.mp4" type="video/mp4">
+      </video>
+      <button class="reel-play" id="reel-play" type="button" aria-label="Play the reel with sound">
+        <span class="rp-btn">&#9654;&#xFE0E;</span><span class="rp-txt">PLAY &middot; SOUND ON</span>
+      </button>
+      <div class="reel-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+</section>
+
 <section class="band tight" id="testimonials" aria-label="Testimonials">
   <div class="wrap">
     <div class="sec-head">
@@ -472,24 +520,27 @@ footer .f-social a svg{vertical-align:-4px;margin-right:9px}
       </div>
       <p class="right rv" data-d="1">Load-ins, drone flights and full builds — the crew posts the shows as they happen. <b>@reflectionsproductions</b></p>
     </div>
-    <div class="ig-row">
-      <a class="ig-tile rv" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener"><img src="assets/img/work-cs/hialeah-05.jpg" alt="Backstage at the Hialeah 4th of July build" loading="lazy"></a>
-      <a class="ig-tile rv" data-d="1" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener"><img src="assets/img/work-cs/hialeah-09.jpg" alt="Stage rigging going up at night" loading="lazy"></a>
-      <div class="ig-embed rv" data-d="2">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DMyeRAZCZo1/" data-instgrm-version="14" style="margin:0;max-width:100%;min-width:unset;background:#0F1B1A;border:1px solid rgba(63,167,150,.3)">
-          <a href="https://www.instagram.com/reel/DMyeRAZCZo1/" target="_blank" rel="noopener" style="display:block;padding:40px 20px;color:#3FA796;text-align:center;font:600 13px/1.5 Archivo,Arial,sans-serif">Watch the latest reel from @reflectionsproductions &rarr;</a>
-        </blockquote>
-        <script async src="https://www.instagram.com/embed.js"></script>
-      </div>
-      <div class="ig-cta rv" data-d="3">
-        <!-- TO EMBED A REEL: paste the Instagram embed code (from the reel's Share > Embed menu)
-             in place of this block, keeping the follow button below it. -->
-        <p>See the next build<br>before the crowd does.</p>
-        <a class="btn btn-coral" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener">Follow on Instagram</a>
-        <div class="ig-others"><a href="https://www.facebook.com/ReflectionsProductions/" target="_blank" rel="noopener">Facebook</a> &middot; <a href="https://www.youtube.com/@reflectionsproductions8660" target="_blank" rel="noopener">YouTube</a> &middot; <a href="https://x.com/Reflectionsprod" target="_blank" rel="noopener">X</a></div>
-      </div>
+    <div class="ig-grid"><a class="ig-tile rv" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener">
+        <img src="assets/img/work-cs/hialeah-05.jpg" alt="Stage build under the lights at Milander Park" loading="lazy"><span class="ig-ol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.3.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.3-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.4 1.2-.1 1.6-.1 4.8-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 1.8a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2zm5.1-2.9a1.1 1.1 0 1 1 0 2.3 1.1 1.1 0 0 1 0-2.3z"/></svg></span></a>
+      <a class="ig-tile rv" data-d="1" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener">
+        <img src="assets/img/work-cs/hialeah-09.jpg" alt="Rigging going up at night" loading="lazy"><span class="ig-ol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.3.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.3-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.4 1.2-.1 1.6-.1 4.8-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 1.8a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2zm5.1-2.9a1.1 1.1 0 1 1 0 2.3 1.1 1.1 0 0 1 0-2.3z"/></svg></span></a>
+      <a class="ig-tile rv" data-d="2" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener">
+        <img src="assets/img/work-cs/hialeah-02.jpg" alt="Crowd at the Hialeah 4th of July" loading="lazy"><span class="ig-ol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.3.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.3-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.4 1.2-.1 1.6-.1 4.8-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 1.8a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2zm5.1-2.9a1.1 1.1 0 1 1 0 2.3 1.1 1.1 0 0 1 0-2.3z"/></svg></span></a>
+      <a class="ig-tile ig-reel rv" data-d="3" href="https://www.instagram.com/reel/DMyeRAZCZo1/" target="_blank" rel="noopener" aria-label="Watch the latest reel on Instagram">
+        <span class="igr-in"><span class="igr-play">&#9654;&#xFE0E;</span><span class="igr-t">Watch the<br>latest reel</span><span class="igr-s">@reflectionsproductions</span></span></a>
+      <a class="ig-tile rv" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener">
+        <img src="assets/img/work-cs/msc-03.jpg" alt="APEX 5040 GEN3 on the conference floor" loading="lazy"><span class="ig-ol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.3.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.3-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.4 1.2-.1 1.6-.1 4.8-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 1.8a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2zm5.1-2.9a1.1 1.1 0 1 1 0 2.3 1.1 1.1 0 0 1 0-2.3z"/></svg></span></a>
+      <a class="ig-tile rv" data-d="1" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener">
+        <img src="assets/img/work-cs/floydfest-01.jpg" alt="Dual-stage festival deployment" loading="lazy"><span class="ig-ol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.3.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.3-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.4 1.2-.1 1.6-.1 4.8-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 1.8a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2zm5.1-2.9a1.1 1.1 0 1 1 0 2.3 1.1 1.1 0 0 1 0-2.3z"/></svg></span></a>
+      <a class="ig-tile rv" data-d="2" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener">
+        <img src="assets/img/work-cs/hialeah-11.jpg" alt="Lift work on the fly bays" loading="lazy"><span class="ig-ol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.3.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.3-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.4 1.2-.1 1.6-.1 4.8-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 1.8a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2zm5.1-2.9a1.1 1.1 0 1 1 0 2.3 1.1 1.1 0 0 1 0-2.3z"/></svg></span></a>
+      <a class="ig-tile rv" data-d="3" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener">
+        <img src="assets/img/work-cs/bigorange-01.jpg" alt="New Year&rsquo;s Eve stage at Bayfront Park" loading="lazy"><span class="ig-ol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.3.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.3-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.4 1.2-.1 1.6-.1 4.8-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 1.8a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2zm5.1-2.9a1.1 1.1 0 1 1 0 2.3 1.1 1.1 0 0 1 0-2.3z"/></svg></span></a></div>
+    <div class="ig-ctarow rv">
+      <a class="btn btn-coral" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener">Follow on Instagram</a>
+      <span class="ig-others"><a href="https://www.facebook.com/ReflectionsProductions/" target="_blank" rel="noopener">Facebook</a> &middot; <a href="https://www.youtube.com/@reflectionsproductions8660" target="_blank" rel="noopener">YouTube</a> &middot; <a href="https://x.com/Reflectionsprod" target="_blank" rel="noopener">X</a></span>
     </div>
-  </div>
+  
 </section>
 
 <section class="quote">
@@ -533,7 +584,7 @@ footer .f-social a svg{vertical-align:-4px;margin-right:9px}
         </g>
       </svg>
         <span class="bt"><b>Reflections</b><span>Productions</span></span>
-        <p>South Florida's Creative Source. Mobile stages, concert audio, lighting, video and crew since 1975.</p>
+        <p>The stage behind South Florida's biggest nights — mobile stages, concert audio, lighting, video and crew since 1975.</p>
       </div>
       <div class="foot-col">
         <h4>Site</h4>
@@ -585,22 +636,15 @@ footer .f-social a svg{vertical-align:-4px;margin-right:9px}
 </footer>
 <script src="assets/js/main.js"></script>
 
-<div class="vmodal" id="vmodal" role="dialog" aria-modal="true" aria-label="Hialeah drone film with sound">
-  <button class="vm-close" id="vm-close" type="button">Close &#10005;</button>
-  <video id="vm-video" controls preload="none" playsinline poster="assets/video/hialeah-poster.jpg">
-    <source src="assets/video/hialeah-drone-full-audio.mp4" type="video/mp4">
-  </video>
-</div>
+
 <script>
 (function(){
-  var m=document.getElementById('vmodal'),v=document.getElementById('vm-video'),
-      o=document.getElementById('watch-sound'),c=document.getElementById('vm-close');
-  if(!m||!o)return;
-  function close(){m.classList.remove('open');v.pause();document.body.style.overflow=''}
-  o.addEventListener('click',function(){m.classList.add('open');document.body.style.overflow='hidden';v.play()});
-  c.addEventListener('click',close);
-  m.addEventListener('click',function(e){if(e.target===m)close()});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  var v=document.getElementById('reel-video'),b=document.getElementById('reel-play');
+  if(!v||!b)return;
+  b.addEventListener('click',function(){
+    b.classList.add('off'); v.setAttribute('controls',''); v.muted=false; v.play();
+  });
+  v.addEventListener('ended',function(){ b.classList.remove('off'); v.removeAttribute('controls'); });
 })();
 </script>
 </body>
