@@ -52,6 +52,31 @@
   ]
 }
 </script>
+<style>
+.trust-row{letter-spacing:.14em;font-size:11.5px;font-weight:600;color:rgba(244,239,230,.55);text-transform:uppercase;margin:0 0 46px;line-height:2}
+.path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.path-card{display:block;border:1px solid rgba(63,167,150,.28);padding:30px 28px 26px;text-decoration:none;color:inherit;position:relative;transition:.2s;background:rgba(19,94,84,.08)}
+.path-card:hover{border-color:var(--teal);transform:translateY(-3px)}
+.path-card .pc-no{font-family:'Archivo Black',Arial,sans-serif;color:var(--coral);font-size:13px;letter-spacing:.2em}
+.path-card h3{font-family:'Archivo Black',Arial,sans-serif;font-size:21px;margin:12px 0 10px;color:var(--sand)}
+.path-card p{font-size:14.5px;line-height:1.65;color:rgba(244,239,230,.72);margin:0 0 18px}
+.path-card .pc-go{color:var(--teal);font-weight:600;font-size:13.5px;letter-spacing:.06em}
+.steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step{border-top:2px solid var(--teal);padding-top:20px}
+.step .st-no{font-family:'Archivo Black',Arial,sans-serif;font-size:34px;color:var(--coral)}
+.step h3{font-family:'Archivo Black',Arial,sans-serif;font-size:19px;margin:10px 0 8px;color:var(--sand)}
+.step p{font-size:14.5px;line-height:1.65;color:rgba(244,239,230,.72);margin:0}
+.step a{color:var(--teal)}
+.fleet-all{margin:34px 0 0;text-align:center}
+.rates-tease{display:flex;align-items:center;justify-content:space-between;gap:34px;border:1px solid rgba(255,107,74,.35);padding:44px 46px;flex-wrap:wrap;background:rgba(255,107,74,.05)}
+.watch-btn{cursor:pointer}
+.vmodal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(4,8,8,.88);padding:4vw}
+.vmodal.open{display:flex}
+.vmodal video{width:min(1100px,92vw);max-height:82vh;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.vmodal .vm-close{position:absolute;top:22px;right:26px;background:none;border:1px solid rgba(244,239,230,.4);color:var(--sand);font:600 13px/1 Archivo,Arial,sans-serif;letter-spacing:.1em;padding:10px 16px;cursor:pointer}
+.vmodal .vm-close:hover{border-color:var(--coral);color:var(--coral)}
+@media(max-width:900px){.path-grid,.steps-row{grid-template-columns:1fr}.rates-tease{padding:34px 26px}}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -80,7 +105,7 @@
       <span class="bt"><b>Reflections</b><span>Productions</span></span>
     </a>
     <div class="nav-links">
-      <a href="stages/index.html">Stage Fleet</a><a href="production/index.html">Production</a><a href="work/index.html">Our Work</a><a href="about.html">About</a>
+      <a href="stages/index.html">Stage Fleet</a><a href="production/index.html">Production</a><a href="rates.html">Rates</a><a href="work/index.html">Our Work</a><a href="about.html">About</a>
     </div>
     <a class="btn btn-coral" href="quote.html">Get a Quote</a>
     <button class="nav-burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><i></i><i></i><i></i></button>
@@ -88,7 +113,7 @@
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   <a href="index.html">Home</a>
-  <a href="stages/index.html">Stage Fleet</a><a href="production/index.html">Production</a><a href="work/index.html">Our Work</a><a href="about.html">About</a>
+  <a href="stages/index.html">Stage Fleet</a><a href="production/index.html">Production</a><a href="rates.html">Rates</a><a href="work/index.html">Our Work</a><a href="about.html">About</a>
   <a href="quote.html" class="btn btn-coral">Get a Quote</a>
 </div>
 <header class="hero" id="top">
@@ -96,7 +121,6 @@
     <video class="hero-video" autoplay muted loop playsinline preload="auto"
            poster="assets/video/hialeah-poster.jpg"
            aria-label="Drone flight over the APEX 5040 GEN3 stage as fireworks burst above the Hialeah 4th of July crowd">
-      <source src="assets/video/hialeah-drone-15s.webm" type="video/webm">
       <source src="assets/video/hialeah-drone-15s.mp4" type="video/mp4">
       <img src="assets/video/hialeah-poster.jpg" alt="APEX 5040 GEN3 mobile stage under fireworks at the Hialeah 4th of July celebration">
     </video>
@@ -112,6 +136,7 @@
     <div class="ctas rv" data-d="3">
       <a class="btn btn-coral" href="quote.html">Get a Quote</a>
       <a class="btn btn-ghost" href="#fleet">See the Fleet</a>
+      <button class="btn btn-ghost watch-btn" id="watch-sound" type="button" aria-haspopup="dialog">&#9654;&#xFE0E; Watch with Sound</button>
     </div>
     <div class="est" aria-hidden="true"><span class="n">PRINCETON&nbsp;&middot;&nbsp;FLORIDA&nbsp;&middot;&nbsp;SINCE&nbsp;1975</span></div>
   </div>
@@ -122,7 +147,40 @@
     <div class="stat rv"><div class="v">50 <em>Years</em></div><div class="l">On stage since 1975</div></div>
     <div class="stat rv" data-d="1"><div class="v">8 <em>Stages</em></div><div class="l">APEX hydraulic mobile fleet</div></div>
     <div class="stat rv" data-d="2"><div class="v">JBL <em>Audio</em></div><div class="l">Concert-grade sound systems</div></div>
-    <div class="stat rv" data-d="3"><div class="v">Biggest <em>Events</em></div><div class="l">Across South Florida</div></div>
+    <div class="stat rv" data-d="3"><div class="v">Same-Day <em>Quotes</em></div><div class="l">Tell us the date &amp; crowd</div></div>
+  </div>
+</section>
+
+<section class="band tight" id="start" aria-label="Choose your path">
+  <div class="wrap">
+    <p class="trust-row rv" aria-label="Clients and events">TRUSTED ON SOUTH FLORIDA'S BIGGEST NIGHTS &nbsp;&mdash;&nbsp; City of Hialeah &middot; Big Orange NYE Miami &middot; FloydFest &middot; Formula E Fan Village &middot; Network Broadcast Sets</p>
+    <div class="sec-head">
+      <div class="left rv">
+        <p class="kicker"><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span> Start Here</p>
+        <h2>What Do You<br><span class="ghost">Need?</span></h2>
+      </div>
+      <p class="right rv" data-d="1">Three ways in. Pick the one that sounds like you — or just call <a href="tel:+17865042369" style="color:var(--teal);font-weight:600">786-504-2369</a> and describe the show.</p>
+    </div>
+    <div class="path-grid">
+      <a class="path-card rv" href="stages/index.html">
+        <span class="pc-no">01</span>
+        <h3>I need a stage</h3>
+        <p>Eight APEX hydraulic stages from a 20-foot community deck to the 50&times;40 flagship. Compare decks, specs and photos.</p>
+        <span class="pc-go">Browse the fleet &rarr;</span>
+      </a>
+      <a class="path-card rv" data-d="1" href="production/index.html">
+        <span class="pc-no">02</span>
+        <h3>I need the whole show</h3>
+        <p>Stage plus audio, lighting, LED video, barricades, backline and crew — one partner, one truck line, one quote.</p>
+        <span class="pc-go">See production services &rarr;</span>
+      </a>
+      <a class="path-card rv" data-d="2" href="quote.html">
+        <span class="pc-no">03</span>
+        <h3>Not sure yet</h3>
+        <p>Tell us the date, place and expected crowd. We'll recommend the right stage and rig — usually the same day.</p>
+        <span class="pc-go">Get a recommendation &rarr;</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -186,70 +244,6 @@
         <a class="card-cover" href="stages/apex-3224.html" aria-label="APEX 3224 details"></a>
       </article>
 
-      <article class="card rv" data-d="1">
-        <div class="ph"><img src="assets/img/fleet-2424.webp" alt="APEX 2424 stage beside a GEN3 stage at FloydFest" loading="lazy"></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div><span class="series">APEX</span><span class="model">2424</span></div>
-            <span class="deck">24&prime; &times; 24&prime; DECK</span>
-          </div>
-          <ul class="specs">
-            <li>Square 24&prime; &times; 24&prime; performance deck</li>
-            <li>Mid-size festivals, city concerts, headline DJs</li>
-          </ul>
-          <div class="card-foot"><span class="spec-link">View the 2424</span><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
-        </div>
-        <a class="card-cover" href="stages/apex-2424.html" aria-label="APEX 2424 details"></a>
-      </article>
-
-      <article class="card rv" data-d="2">
-        <div class="ph"><img src="assets/img/fleet-2420.webp" alt="APEX mobile stage built for a night showcase" loading="lazy"></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div><span class="series">APEX</span><span class="model">2420</span></div>
-            <span class="deck">24&prime; &times; 20&prime; DECK</span>
-          </div>
-          <ul class="specs">
-            <li>13&prime; stage height &middot; tows behind a one-ton gooseneck</li>
-            <li>2,000 lb flybays + 4,000 lb cargo in the trailer</li>
-          </ul>
-          <div class="card-foot"><span class="spec-link">View the 2420</span><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
-        </div>
-        <a class="card-cover" href="stages/apex-2420.html" aria-label="APEX 2420 details"></a>
-      </article>
-
-      <article class="card rv">
-        <div class="ph"><img src="assets/img/fleet-2016.webp" alt="APEX 2016 stage at the Formula E Fan Village" loading="lazy"></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div><span class="series">APEX</span><span class="model">2016</span></div>
-            <span class="deck">20&prime; &times; 16&prime; DECK</span>
-          </div>
-          <ul class="specs">
-            <li>12&prime;10&Prime; stage height &middot; 3,400 lb total roof capacity</li>
-            <li>Front-opening, aluminum stairs, modular back panels</li>
-          </ul>
-          <div class="card-foot"><span class="spec-link">View the 2016</span><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
-        </div>
-        <a class="card-cover" href="stages/apex-2016.html" aria-label="APEX 2016 details"></a>
-      </article>
-
-      <article class="card rv" data-d="1">
-        <div class="ph"><img src="assets/img/fleet-vip-3724.webp" alt="Captain's VIP Deck 3724 two-level mobile event deck" loading="lazy"><span class="chip">VIP Hospitality</span></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div><span class="series">Captain's VIP Deck</span><span class="model">3724</span></div>
-            <span class="deck">45&prime; &times; 24&prime; OPEN</span>
-          </div>
-          <ul class="specs">
-            <li>Deploys to ~888 sq ft of premium viewing deck</li>
-            <li>Folds to 35&prime; L &times; 102&Prime; W &times; 10&prime;6&Prime; H for transport</li>
-          </ul>
-          <div class="card-foot"><span class="spec-link">View the deck</span><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
-        </div>
-        <a class="card-cover" href="stages/vip-deck-3724.html" aria-label="Captain's VIP Deck 3724 details"></a>
-      </article>
-
       <article class="card soon rv" data-d="2">
         <div class="ph"><img src="assets/img/fleet-4232.webp" alt="Rendering of the upcoming APEX 4232 mobile stage" loading="lazy"><span class="chip coral">2026 Season</span></div>
         <div class="card-body">
@@ -265,6 +259,7 @@
         <a class="card-cover" href="stages/apex-4232.html" aria-label="APEX 4232 coming soon"></a>
       </article>
     </div>
+    <p class="fleet-all rv"><a class="arrow-link" href="stages/index.html">Compare all 8 stages — decks, heights &amp; tow specs</a></p>
   </div>
 </section>
 
@@ -341,6 +336,22 @@
   </div>
 </section>
 
+<section class="band tight" id="how" aria-label="How it works">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left rv">
+        <p class="kicker"><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span> How It Works</p>
+        <h2>Three Steps to<br><span class="ghost">Showtime</span></h2>
+      </div>
+    </div>
+    <div class="steps-row">
+      <div class="step rv"><span class="st-no">1</span><h3>Tell us the show</h3><p>Date, place, expected crowd, and what's happening on deck. Two minutes on the <a href="quote.html">quote form</a> or one phone call.</p></div>
+      <div class="step rv" data-d="1"><span class="st-no">2</span><h3>Get your quote</h3><p>One number for the whole rig — stage, audio, lights, crew, trucking. Usually back to you the same day.</p></div>
+      <div class="step rv" data-d="2"><span class="st-no">3</span><h3>The stage stands up</h3><p>The trailer rolls in, hydraulics go up, and your stage is show-ready in hours — with our crew running it.</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="band sand-band" id="about">
   <div class="wrap">
     <div class="about-grid">
@@ -360,6 +371,19 @@
         </div>
         <p style="margin-top:30px;margin-bottom:0"><a class="arrow-link" style="color:var(--teal-deep)" href="about.html">Read the full story</a></p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="band tight" id="rates-tease" aria-label="Published rates">
+  <div class="wrap">
+    <div class="rates-tease rv">
+      <div>
+        <p class="kicker"><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span> No Mystery Pricing</p>
+        <h2 style="margin:0 0 10px">We publish<br>our <span style="color:var(--coral)">rates</span>.</h2>
+        <p style="max-width:52ch">Crew calls, generators, barricades, DJ systems, movie nights — the numbers are on the site, not behind a phone call. Stages are quoted per event.</p>
+      </div>
+      <a class="btn btn-coral" href="rates.html">See the Rates</a>
     </div>
   </div>
 </section>
@@ -411,7 +435,7 @@
         <h4>Site</h4>
         <ul>
           <li><a href="stages/index.html">Stage Fleet</a></li>
-          <li><a href="production/index.html">Production</a></li>
+          <li><a href="production/index.html">Production</a><a href="rates.html">Rates</a></li>
           <li><a href="work/index.html">Our Work</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="quote.html">Get a Quote</a></li>
@@ -455,5 +479,24 @@
   </div>
 </footer>
 <script src="assets/js/main.js"></script>
+
+<div class="vmodal" id="vmodal" role="dialog" aria-modal="true" aria-label="Hialeah drone film with sound">
+  <button class="vm-close" id="vm-close" type="button">Close &#10005;</button>
+  <video id="vm-video" controls preload="none" playsinline poster="assets/video/hialeah-poster.jpg">
+    <source src="assets/video/hialeah-drone-full-audio.mp4" type="video/mp4">
+  </video>
+</div>
+<script>
+(function(){
+  var m=document.getElementById('vmodal'),v=document.getElementById('vm-video'),
+      o=document.getElementById('watch-sound'),c=document.getElementById('vm-close');
+  if(!m||!o)return;
+  function close(){m.classList.remove('open');v.pause();document.body.style.overflow=''}
+  o.addEventListener('click',function(){m.classList.add('open');document.body.style.overflow='hidden';v.play()});
+  c.addEventListener('click',close);
+  m.addEventListener('click',function(e){if(e.target===m)close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+})();
+</script>
 </body>
 </html>

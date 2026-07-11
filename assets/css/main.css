@@ -4,6 +4,15 @@
    Palette: #0C1414 / #135E54 / #3FA796 / #F4EFE6 / #FF6B4A
    Type: Archivo Black (display) / Archivo (text)
    ============================================================ */
+/* Self-hosted fonts (v3) — Archivo variable + Archivo Black, latin subsets */
+@font-face{
+  font-family:'Archivo';font-style:normal;font-weight:100 900;font-stretch:100%;font-display:swap;
+  src:url('../fonts/archivo-var-latin.woff2') format('woff2');
+}
+@font-face{
+  font-family:'Archivo Black';font-style:normal;font-weight:400;font-display:swap;
+  src:url('../fonts/archivo-black-latin.woff2') format('woff2');
+}
 :root{
   --black:#0C1414;
   --panel:#101B1A;
@@ -14,7 +23,7 @@
   --coral:#FF6B4A;
   --hair:rgba(63,167,150,.16);
   --sand-dim:rgba(244,239,230,.62);
-  --sand-faint:rgba(244,239,230,.38);
+  --sand-faint:rgba(244,239,230,.55); /* v3: was .38 — failed WCAG AA on running text */
   --max:1280px;
   --nav-h:76px;
 }
@@ -188,7 +197,7 @@ nav.site-nav .nav-links + .btn{margin-left:0}
 .page-hero h1{font-size:clamp(44px,7.6vw,110px);letter-spacing:-.005em}
 .page-hero h1 .face{text-shadow:0 2px 34px rgba(12,20,20,.5)}
 .page-hero h1 .refl{font-size:.6em}
-.page-hero h1 .ghost{color:transparent;-webkit-text-stroke:1px rgba(63,167,150,.55)}
+.page-hero h1 .ghost{color:transparent;-webkit-text-stroke:1px rgba(63,167,150,.75)}
 .page-hero .lede{max-width:560px;font-size:clamp(15px,1.35vw,18px);color:var(--sand-dim);margin-top:24px;font-weight:500}
 .page-hero .lede b{color:var(--sand);font-weight:600}
 .page-hero .meta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
@@ -213,7 +222,7 @@ section.band.tight{padding:clamp(56px,7vw,96px) 0}
 .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:clamp(40px,5vw,64px);flex-wrap:wrap}
 .sec-head .left .kicker,.kicker{display:flex;align-items:center;gap:14px;font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--teal);margin-bottom:18px}
 .sec-head h2{font-size:clamp(38px,5.4vw,76px);letter-spacing:-.005em}
-.sec-head h2 .ghost,.ghost{color:transparent;-webkit-text-stroke:1px rgba(63,167,150,.5)}
+.sec-head h2 .ghost,.ghost{color:transparent;-webkit-text-stroke:1px rgba(63,167,150,.75)}
 .sec-head .right{max-width:380px;color:var(--sand-dim);font-size:15px;padding-bottom:8px}
 
 .prose{max-width:68ch}
@@ -393,7 +402,7 @@ table.spec td{color:var(--sand)}
 .sand-band{background:var(--sand);color:var(--black)}
 .sand-band .kicker{color:var(--teal-deep)}
 .sand-band h2{color:var(--black)}
-.sand-band h2 .accent{color:var(--coral)}
+.sand-band h2 .accent{color:var(--teal-deep)} /* v3: coral on sand was 2.4:1 */
 .about-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(40px,6vw,96px)}
 .about-left .years{margin-top:34px;display:flex;align-items:baseline;gap:14px}
 .about-left .years .big{font-family:'Archivo Black',sans-serif;font-size:clamp(64px,7vw,108px);line-height:.85;color:var(--teal-deep)}
@@ -423,7 +432,7 @@ form.quote-form{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .field label .req{color:var(--coral)}
 .field input,.field select,.field textarea{
   background:var(--panel);border:1px solid rgba(63,167,150,.28);color:var(--sand);
-  font-family:'Archivo',sans-serif;font-size:15px;padding:14px 15px;width:100%;
+  font-family:'Archivo',sans-serif;font-size:16px;padding:14px 15px;width:100%; /* v3: 16px stops iOS zoom */
   transition:border-color .25s,background .25s;border-radius:0;-webkit-appearance:none;appearance:none;
 }
 .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233FA796' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;padding-right:38px}
@@ -545,8 +554,13 @@ footer{border-top:1px solid var(--hair);padding:60px 0 36px;background:var(--pan
   .values-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:700px){
+  /* v3: keep a compact quote button in the mobile bar (was display:none) */
+  nav.site-nav .btn{display:inline-block;padding:11px 13px;font-size:10.5px;letter-spacing:.07em;white-space:nowrap}
+  .nav-in{gap:12px}
+  .brand .bt span{display:none}
+}
+@media(max-width:374px){
   nav.site-nav .btn{display:none}
-  .nav-in{gap:16px}
 }
 @media(max-width:620px){
   .svc-grid{grid-template-columns:1fr}
