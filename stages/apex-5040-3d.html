@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APEX 5040 — Interactive 3D Concept | Reflections Productions</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Archivo+Black&display=swap" rel="stylesheet">
+<script type="module" src="../assets/js/model-viewer.min.js"></script>
+<style>
+  :root{--ink:#0C1414;--teal:#3FA796;--sand:#F4EFE6;--coral:#FF6B4A}
+  *{margin:0;box-sizing:border-box}
+  body{background:var(--ink);color:var(--sand);font-family:Archivo,Arial,sans-serif;min-height:100vh;display:flex;flex-direction:column}
+  header{padding:26px 5vw 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  h1{font-family:'Archivo Black',Arial,sans-serif;font-size:clamp(22px,3vw,34px);letter-spacing:.01em}
+  h1 span{color:var(--teal)}
+  .tag{font:600 11px/1 Archivo;letter-spacing:.16em;color:var(--coral);border:1px dashed rgba(255,107,74,.5);padding:7px 10px}
+  model-viewer{width:100%;flex:1;min-height:66vh;background:radial-gradient(ellipse at 50% 80%,rgba(19,94,84,.35),transparent 60%),var(--ink);--poster-color:transparent}
+  footer{padding:16px 5vw 26px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:rgba(244,239,230,.55);line-height:1.6}
+  footer b{color:var(--sand)}
+  .bars{display:inline-flex;flex-direction:column;gap:3px;margin-right:10px;vertical-align:middle}
+  .bars i{display:block;height:3px;background:var(--teal)}
+  .bars i:nth-child(1){width:26px}.bars i:nth-child(2){width:19px;opacity:.7}.bars i:nth-child(3){width:12px;opacity:.4}
+</style></head><body>
+<header>
+  <h1><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>APEX 5040 <span>· Interactive 3D</span></h1>
+  <span class="tag">CONCEPT DEMO — MASSING MODEL</span>
+</header>
+<model-viewer src="../assets/apex-5040-massing.glb" alt="Interactive 3D massing model of the APEX 5040 mobile stage"
+  camera-controls auto-rotate auto-rotate-delay="800" rotation-per-second="18deg"
+  shadow-intensity="0.9" exposure="1.25" camera-orbit="205deg 75deg 125m" min-camera-orbit="auto auto 60m" max-camera-orbit="auto auto 240m">
+</model-viewer>
+<footer>
+  <p><b>Drag to spin · scroll to zoom.</b> Rough massing proportions of the 50′ × 40′ flagship — deck, mast columns, roof, fly bays and outriggers.</p>
+  <p>Production version: photoreal model from manufacturer CAD, embedded on every stage page.</p>
+</footer>
+</body></html>

@@ -2,6 +2,7 @@
    Nav scroll state, mobile menu, scroll reveals.
    Respects prefers-reduced-motion. No dependencies. */
 (function () {
+  document.documentElement.classList.add('js');
   'use strict';
 
   var nav = document.querySelector('nav.site-nav');
@@ -71,3 +72,6 @@
     els.forEach(function (e) { io.observe(e); });
   }
 })();
+
+/* failsafe: never leave content hidden */
+setTimeout(function(){document.querySelectorAll('.rv:not(.on)').forEach(function(e){e.classList.add('on')})},2500);

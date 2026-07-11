@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APEX 5040 GEN3 — Full Spec Sheet | Reflections Productions</title>
+<meta name="description" content="The complete APEX 5040 GEN3 specification, rebuilt for the web: three operational formats, load diagrams, transport specs, High Wind Action Plan and engineering certifications.">
+<link rel="canonical" href="https://reflectionsproductions.com/stages/apex-5040-specs.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Reflections Productions">
+<meta property="og:title" content="APEX 5040 Mobile Stage Rental | Reflections Productions">
+<meta property="og:description" content="The APEX 5040 is the flagship of the Reflections Productions fleet — a 50-by-40 hydraulic mobile stage built for headliners and 20,000-plus crowds in South Florida and beyond.">
+<meta property="og:url" content="https://reflectionsproductions.com/stages/apex-5040.html">
+<meta property="og:image" content="https://reflectionsproductions.com/assets/img/stage-5040-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0C1414">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+<style>
+.nav-social{display:flex;gap:14px;align-items:center;margin:0 18px 0 6px;color:rgba(244,239,230,.65)}
+.nav-social a{color:inherit;display:flex;transition:.15s}
+.nav-social a:hover{color:#3FA796;transform:translateY(-1px)}
+@media(max-width:1080px){.nav-social{display:none}}
+footer .f-social a svg{vertical-align:-4px;margin-right:9px}
+</style>
+<style>
+.fmt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fmt{border:1px solid rgba(63,167,150,.3);padding:26px 24px;background:rgba(19,94,84,.07)}
+.fmt.beast{border-color:rgba(255,107,74,.5)}
+.fmt h3{font-family:'Archivo Black',Arial,sans-serif;font-size:20px;margin:0 0 4px;color:var(--sand)}
+.fmt .f-sub{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--coral)}
+.fmt ul{margin:14px 0 0;padding:0 0 0 18px;font-size:14px;line-height:1.7;color:rgba(244,239,230,.78)}
+.dwg-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.dwg{background:#F4EFE6;border:1px solid rgba(63,167,150,.3)}
+.dwg img{width:100%;display:block}
+.dwg figcaption{padding:12px 16px;font:600 12px/1.4 Archivo,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#0C1414;border-top:2px solid #3FA796}
+.hwap{border-left:3px solid var(--coral);padding:6px 0 6px 26px}
+.hwap li{margin-bottom:10px;line-height:1.65;font-size:14.5px;color:rgba(244,239,230,.8)}
+.dl-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+.mspec-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.mspec-grid .spec{table-layout:fixed;width:100%}
+.mspec-grid .spec td{word-wrap:break-word}
+@media(max-width:900px){.fmt-grid{grid-template-columns:1fr}.dwg-grid{grid-template-columns:1fr}.mspec-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" id="nav" aria-label="Main">
+  <div class="nav-in">
+    <a class="brand" href="../" aria-label="Reflections Productions home">
+      <svg viewBox="30 28 180 180" role="img" aria-hidden="true">
+        <defs><clipPath id="c2nav"><circle cx="120" cy="118" r="84"/></clipPath></defs>
+        <g clip-path="url(#c2nav)">
+          <rect x="36" y="34" width="168" height="96" fill="#FF6B4A"/>
+          <rect x="36" y="138" width="168" height="11" fill="#3FA796"/>
+          <rect x="36" y="157" width="168" height="9" fill="#3FA796" opacity="0.68"/>
+          <rect x="36" y="174" width="168" height="8" fill="#3FA796" opacity="0.44"/>
+          <rect x="36" y="190" width="168" height="6" fill="#3FA796" opacity="0.24"/>
+          <g fill="#0C1414">
+            <path d="M112 132 C112 106 114 88 122 68 L132 72 C124 90 122 108 123 132 Z"/>
+            <path d="M127 70 C107 58 86 58 70 70 C88 66 108 68 127 78 Z"/>
+            <path d="M127 70 C115 51 97 43 78 45 C96 50 112 58 124 74 Z"/>
+            <path d="M127 70 C128 50 137 36 153 28 C141 42 134 56 133 72 Z"/>
+            <path d="M127 70 C145 56 165 54 181 62 C163 62 145 68 131 78 Z"/>
+            <path d="M127 70 C143 68 159 76 169 90 C155 80 141 78 129 82 Z"/>
+            <circle cx="127" cy="74" r="5"/>
+          </g>
+        </g>
+      </svg>
+      <span class="bt"><b>Reflections</b><span>Productions</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="../stages/index.html" class="active" aria-current="page">Stage Fleet</a><a href="../production/index.html">Production</a><a href="../rates.html">Rates</a><a href="../work/index.html">Our Work</a><a href="../about.html">About</a>
+    </div>
+    <span class="nav-social" aria-label="Social media"><a class="f-social-a" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.3.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.3C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.4-.6.7-.8 1.2-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.4.4.7.6 1.2.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.4.6-.7.8-1.2.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.4-.4-.7-.6-1.2-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 1.8a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2zm5.1-2.9a1.1 1.1 0 1 1 0 2.3 1.1 1.1 0 0 1 0-2.3z"/></svg></a><a class="f-social-a" href="https://www.facebook.com/ReflectionsProductions/" target="_blank" rel="noopener" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a><a class="f-social-a" href="https://www.youtube.com/@reflectionsproductions8660" target="_blank" rel="noopener" target="_blank" rel="noopener" aria-label="Youtube"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12c0 1.9.2 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.3-1.9.5-3.9.5-5.8s-.2-3.9-.5-5.8zM9.5 15.6V8.4L15.8 12l-6.3 3.6z"/></svg></a><a class="f-social-a" href="https://x.com/Reflectionsprod" target="_blank" rel="noopener" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M18.2 2h3.3l-7.3 8.4L22.8 22h-6.7l-5.3-6.9L4.8 22H1.5l7.8-9L1.2 2h6.9l4.8 6.3L18.2 2zm-1.2 18h1.8L6.9 3.9H4.9L17 20z"/></svg></a></span>
+    <a class="btn btn-coral" href="../quote.html">Get a Quote</a>
+    <button class="nav-burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><i></i><i></i><i></i></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../">Home</a>
+  <a href="../stages/index.html" class="active" aria-current="page">Stage Fleet</a><a href="../production/index.html">Production</a><a href="../rates.html">Rates</a><a href="../work/index.html">Our Work</a><a href="../about.html">About</a>
+  <a href="../quote.html" class="btn btn-coral">Get a Quote</a>
+</div>
+<header class="page-hero short">
+  <div class="ph-bg"></div>
+  <div class="ph-in" id="main">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Stage Fleet</a><span class="sep">/</span><a href="apex-5040.html">APEX 5040</a><span class="sep">/</span><span>Full Specs</span></nav>
+    <p class="eyebrow"><span class="wl" aria-hidden="true"><i></i><i></i><i></i></span> Complete Specification &nbsp;&middot;&nbsp; Rebuilt for the Web</p>
+    <h1 class="mirror"><span class="face">5040 GEN3<br>Full Specs</span><span class="waterrule" aria-hidden="true"></span><span class="refl" aria-hidden="true">Full Specs</span></h1>
+    <p class="lede">Everything in the manufacturer's 70-page submittal package — the formats, the load diagrams, the wind plan — <b>readable on any screen, no PDF required.</b></p>
+    <div class="dl-row">
+      <a class="btn btn-coral" href="apex-5040-3d.html">&#9635; Spin It in 3D</a>
+      <a class="btn btn-ghost" href="https://apex.miami/APEX5040Gen3.pdf" target="_blank" rel="noopener">Download GEN3 package (PDF, 89 MB)</a>
+      <a class="btn btn-ghost" href="https://apex.miami/APEX5040LEGACY.pdf" target="_blank" rel="noopener">Download Classic PDF (16 MB)</a>
+    </div>
+  </div>
+</header>
+
+<section class="band tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left rv"><p class="kicker"><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span> 01 &middot; Three Ways to Run It</p>
+      <h2>Basic. Standard.<br><span class="ghost">BEAST.</span></h2></div>
+      <p class="right rv" data-d="1">The GEN3 mast-column design is the strongest hydraulic stage the APEX line has built — and it deploys in three operational formats depending on how much show you're flying.</p>
+    </div>
+    <div class="fmt-grid">
+      <div class="fmt rv"><span class="f-sub">Format 01</span><h3>Basic 5040</h3>
+        <ul><li>Two 8&prime; fly bays</li><li>Travels as one self-contained trailer at legal weight</li><li>Crew of 6 &middot; set up and strike in 3 hours</li></ul></div>
+      <div class="fmt rv" data-d="1"><span class="f-sub">Format 02</span><h3>Standard 5040</h3>
+        <ul><li>Two 12&prime; fly bays</li><li>Same single-trailer transport</li><li>Crew of 6 &middot; set up and strike in 3 hours</li></ul></div>
+      <div class="fmt beast rv" data-d="2"><span class="f-sub">Format 03</span><h3>&ldquo;BEAST&rdquo; 5040</h3>
+        <ul><li>Two 25&prime; fly bays &middot; 10,000 lbs each &middot; no ground support</li><li>Flies a 90&prime;&times;6&prime; video banner, two 18&prime;&times;24&prime; IMAG walls + 10,000 lb upstage wall</li><li>Extended sound bays at 4,000 lbs each</li><li>Full up/downstage spanner-beam system — fly points almost anywhere under the roof</li><li>Additional transport &middot; crew of 11</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="band tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left rv"><p class="kicker"><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span> 02 &middot; The Numbers</p>
+      <h2>Master<br><span class="ghost">Spec Table</span></h2></div>
+      <p class="right rv" data-d="1">Combined from the GEN3 submittal and the manufacturer's specification sheet. GEN3 roof structure capacity: <b>102,000 lbs</b> (Classic: 44,000 lbs).</p>
+    </div>
+    <div class="mspec-grid">
+      <div class="spec-panel rv"><div class="spec-cap"><h3>Trailer &amp; Transport</h3><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+        <table class="spec"><tbody>
+          <tr><th scope="row">Trailer length</th><td>53&prime;</td></tr>
+          <tr><th scope="row">Overall width</th><td>102&Prime;</td></tr>
+          <tr><th scope="row">Travel height</th><td>13&prime;3&Prime;</td></tr>
+          <tr><th scope="row">Trailer weight</th><td>55,165 lbs (empty: 57,000 lbs GEN3 closed)</td></tr>
+          <tr><th scope="row">Axles</th><td>California-legal split axles — no special-use permits</td></tr>
+          <tr><th scope="row">Hauling mode</th><td>Tractor trailer</td></tr>
+          <tr><th scope="row">Cargo capacity</th><td>~4,000 lbs of equipment inside</td></tr>
+        </tbody></table></div>
+      <div class="spec-panel rv" data-d="1"><div class="spec-cap"><h3>Deck &amp; Structure</h3><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+        <table class="spec"><tbody>
+          <tr><th scope="row">Stage area</th><td>50&prime; W &times; 40&prime; D &times; 30&prime; T</td></tr>
+          <tr><th scope="row">Floor size</th><td>50&prime; &times; 38&prime;6&Prime; &middot; five non-slip sections</td></tr>
+          <tr><th scope="row">Deck height</th><td>4&prime;&ndash;6&prime; adjustable on hydraulic outriggers</td></tr>
+          <tr><th scope="row">Floor rating</th><td>150 lbs/sq ft &middot; marine plywood / aluminum</td></tr>
+          <tr><th scope="row">Outriggers</th><td>Six-point hydraulic leveling &middot; 25,000 lbs each</td></tr>
+          <tr><th scope="row">Roof capacity (GEN3)</th><td><b>102,000 lbs</b> structure &middot; columns/towers 148,000 lbs</td></tr>
+          <tr><th scope="row">Hydraulics</th><td>3.0 GPM &middot; 4,000 psi &middot; 40 gal &middot; 20 hp Honda</td></tr>
+          <tr><th scope="row">Install time</th><td>1&ndash;2 hours to deck &middot; no site prep</td></tr>
+        </tbody></table></div>
+    </div>
+  </div>
+</section>
+
+<section class="band tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left rv"><p class="kicker"><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span> 03 &middot; The Drawings</p>
+      <h2>Straight From<br><span class="ghost">Engineering</span></h2></div>
+      <p class="right rv" data-d="1">Dimensioned drawings from the manufacturer's package — configurations, rated fly points, transport profile and access.</p>
+    </div>
+    <div class="dwg-grid">
+      <figure class="dwg rv"><img src="../assets/img/specs-5040/modes.jpg" alt="APEX 5040 GEN3 in Basic, Standard and BEAST configurations" loading="lazy"><figcaption>Operational formats — Basic / Standard / BEAST</figcaption></figure>
+      <figure class="dwg rv" data-d="1"><img src="../assets/img/specs-5040/basic-front.jpg" alt="Basic mode front elevation with measurements" loading="lazy"><figcaption>Basic mode — front measurements</figcaption></figure>
+      <figure class="dwg rv"><img src="../assets/img/specs-5040/basic-loads.jpg" alt="Basic mode top loads and measurements diagram" loading="lazy"><figcaption>Basic mode — rated top loads</figcaption></figure>
+      <figure class="dwg rv" data-d="1"><img src="../assets/img/specs-5040/extended-loads.jpg" alt="Extended mode top loads and measurements" loading="lazy"><figcaption>Extended mode — rated top loads</figcaption></figure>
+      <figure class="dwg rv"><img src="../assets/img/specs-5040/beast-loads.jpg" alt="BEAST mode load capacity diagram" loading="lazy"><figcaption>BEAST mode — full load map</figcaption></figure>
+      <figure class="dwg rv" data-d="1"><img src="../assets/img/specs-5040/sidewalls.jpg" alt="Optional side wall package diagram" loading="lazy"><figcaption>Side walls — optional package</figcaption></figure>
+      <figure class="dwg rv"><img src="../assets/img/specs-5040/trailer.jpg" alt="GEN3 closed trailer transport profile with weights" loading="lazy"><figcaption>Closed trailer — transport profile &amp; weights</figcaption></figure>
+      <figure class="dwg rv" data-d="1"><img src="../assets/img/specs-5040/stairs.jpg" alt="Stair unit measurements" loading="lazy"><figcaption>Stairs — measurements</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="band tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left rv"><p class="kicker"><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span> 04 &middot; High Wind Action Plan</p>
+      <h2>Engineered for<br><span class="ghost">Florida Weather</span></h2></div>
+      <p class="right rv" data-d="1">The GEN3 ships with a formal engineer-reviewed High Wind Action Plan (HWAP) under the <b>2018 International Building Code</b> — the document a Florida fire marshal or building official asks about first.</p>
+    </div>
+    <ul class="hwap rv">
+      <li>Defines separate rated wind design speeds for an <b>open</b> roof system (no walls or flown equipment) and a <b>fully enclosed</b> roof system (side/back walls or roof-hung equipment installed).</li>
+      <li>Establishes wind-monitoring and escalation procedures during venue operation, so the stage crew has a defined, safe response as wind loads increase.</li>
+      <li>Prescribes wall-panel removal as the method for reducing projected wind area on the main roof — global stability is preserved through the event.</li>
+      <li>Structural analysis by Entertainment Structures Group; site-specific permit review by a structural engineer as required by the venue's jurisdiction.</li>
+    </ul>
+    <p class="rv" style="margin-top:22px;font-size:13.5px;color:rgba(244,239,230,.6)">The complete HWAP, structural calculations, drawing approvals and flame-resistance certificates are in the downloadable package — and ride with the stage to every show.</p>
+  </div>
+</section>
+
+<section class="quote compact">
+  <div class="wrap">
+    <span class="kicker rv">The flagship, fully documented</span>
+    <h2 class="mirror rv" data-d="1"><span class="face">Put It On<br>Your Site</span><span class="waterrule" aria-hidden="true"></span><span class="refl" aria-hidden="true">Your Site</span></h2>
+    <div class="rv" data-d="3" style="margin-top:22px"><a class="btn btn-coral" href="../quote.html">Get a 5040 Quote</a> <a class="btn btn-ghost" href="apex-5040.html" style="margin-left:10px">Back to the 5040</a></div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <svg viewBox="30 28 180 180" role="img" aria-label="Reflections Productions mark">
+        <defs><clipPath id="c2foot"><circle cx="120" cy="118" r="84"/></clipPath></defs>
+        <g clip-path="url(#c2foot)">
+          <rect x="36" y="34" width="168" height="96" fill="#FF6B4A"/>
+          <rect x="36" y="138" width="168" height="11" fill="#3FA796"/>
+          <rect x="36" y="157" width="168" height="9" fill="#3FA796" opacity="0.68"/>
+          <rect x="36" y="174" width="168" height="8" fill="#3FA796" opacity="0.44"/>
+          <rect x="36" y="190" width="168" height="6" fill="#3FA796" opacity="0.24"/>
+          <g fill="#0C1414">
+            <path d="M112 132 C112 106 114 88 122 68 L132 72 C124 90 122 108 123 132 Z"/>
+            <path d="M127 70 C107 58 86 58 70 70 C88 66 108 68 127 78 Z"/>
+            <path d="M127 70 C115 51 97 43 78 45 C96 50 112 58 124 74 Z"/>
+            <path d="M127 70 C128 50 137 36 153 28 C141 42 134 56 133 72 Z"/>
+            <path d="M127 70 C145 56 165 54 181 62 C163 62 145 68 131 78 Z"/>
+            <path d="M127 70 C143 68 159 76 169 90 C155 80 141 78 129 82 Z"/>
+            <circle cx="127" cy="74" r="5"/>
+          </g>
+        </g>
+      </svg>
+        <span class="bt"><b>Reflections</b><span>Productions</span></span>
+        <p>South Florida's Creative Source. Mobile stages, concert audio, lighting, video and crew since 1975.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="../stages/index.html">Stage Fleet</a></li>
+          <li><a href="../production/index.html">Production</a></li>
+          <li><a href="../rates.html">Rates</a></li>
+          <li><a href="../work/index.html">Our Work</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../quote.html">Get a Quote</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>The Fleet</h4>
+        <ul>
+          <li><a href="../stages/apex-5040.html">APEX 5040</a></li>
+          <li><a href="../stages/apex-4240.html">APEX 4240</a></li>
+          <li><a href="../stages/apex-3224.html">APEX 3224</a></li>
+          <li><a href="../stages/apex-2424.html">APEX 2424</a></li>
+          <li><a href="../stages/apex-2420.html">APEX 2420</a></li>
+          <li><a href="../stages/apex-2016.html">APEX 2016</a></li>
+          <li><a href="../stages/vip-deck-3724.html">VIP Deck 3724</a></li>
+          <li><a href="../stages/apex-4232.html">APEX 4232 · 2026</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+17865042369">786-504-2369</a></li>
+          <li><a href="mailto:operations@reflectionsproductions.com">operations@<br>reflectionsproductions.com</a></li>
+          <li><span>23750 SW 132 Avenue<br>Princeton, FL 33032</span></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/ReflectionsProductions/" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.instagram.com/reflectionsproductions/" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.youtube.com/@reflectionsproductions8660" rel="noopener">YouTube</a></li>
+          <li><a href="https://x.com/Reflectionsprod" rel="noopener">X / Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Reflections Productions Inc.</span>
+      <span class="tag">Fifty Years On Stage &middot; Est. 1975</span>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

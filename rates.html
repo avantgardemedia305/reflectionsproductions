@@ -19,6 +19,27 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/main.css">
+<style>
+.rate-jump{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:10px}
+.rate-jump a{border:1px solid rgba(63,167,150,.3);padding:20px 18px;text-decoration:none;transition:.2s;background:rgba(19,94,84,.08)}
+.rate-jump a:hover{border-color:#3FA796;transform:translateY(-3px)}
+.rate-jump .rj-no{display:block;font-family:'Archivo Black',Arial,sans-serif;color:#FF6B4A;font-size:12px;letter-spacing:.18em}
+.rate-jump .rj-t{display:block;font-family:'Archivo Black',Arial,sans-serif;color:#F4EFE6;font-size:16.5px;margin:8px 0 6px;line-height:1.25}
+.rate-jump .rj-s{display:block;font-size:12.5px;color:rgba(244,239,230,.6);line-height:1.5}
+.rate-sec .spec-panel{max-width:960px}
+.rate-sec .spec{font-size:16px}
+.rate-sec .spec th,.rate-sec .spec td{padding:15px 16px}
+.rate-sec{scroll-margin-top:90px}
+@media(max-width:1000px){.rate-jump{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.rate-jump{grid-template-columns:1fr}}
+</style>
+<style>
+.nav-social{display:flex;gap:14px;align-items:center;margin:0 18px 0 6px;color:rgba(244,239,230,.65)}
+.nav-social a{color:inherit;display:flex;transition:.15s}
+.nav-social a:hover{color:#3FA796;transform:translateY(-1px)}
+@media(max-width:1080px){.nav-social{display:none}}
+footer .f-social a svg{vertical-align:-4px;margin-right:9px}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -49,6 +70,7 @@
     <div class="nav-links">
       <a href="stages/index.html">Stage Fleet</a><a href="production/index.html">Production</a><a href="rates.html" class="active" aria-current="page">Rates</a><a href="work/index.html">Our Work</a><a href="about.html">About</a>
     </div>
+    <span class="nav-social" aria-label="Social media"><a class="f-social-a" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.3.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.3C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.4-.6.7-.8 1.2-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.4.4.7.6 1.2.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.4.6-.7.8-1.2.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.4-.4-.7-.6-1.2-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 1.8a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2zm5.1-2.9a1.1 1.1 0 1 1 0 2.3 1.1 1.1 0 0 1 0-2.3z"/></svg></a><a class="f-social-a" href="https://www.facebook.com/ReflectionsProductions/" target="_blank" rel="noopener" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a><a class="f-social-a" href="https://www.youtube.com/@reflectionsproductions8660" target="_blank" rel="noopener" target="_blank" rel="noopener" aria-label="Youtube"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12c0 1.9.2 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.3-1.9.5-3.9.5-5.8s-.2-3.9-.5-5.8zM9.5 15.6V8.4L15.8 12l-6.3 3.6z"/></svg></a><a class="f-social-a" href="https://x.com/Reflectionsprod" target="_blank" rel="noopener" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M18.2 2h3.3l-7.3 8.4L22.8 22h-6.7l-5.3-6.9L4.8 22H1.5l7.8-9L1.2 2h6.9l4.8 6.3L18.2 2zm-1.2 18h1.8L6.9 3.9H4.9L17 20z"/></svg></a></span>
     <a class="btn btn-coral" href="quote.html">Get a Quote</a>
     <button class="nav-burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><i></i><i></i><i></i></button>
   </div>
@@ -85,8 +107,16 @@
 </section>
 <section class="band" id="rates">
   <div class="wrap">
-    <div class="rates-grid">
-      <div class="spec-panel rv">
+    <div class="rate-jump rv"><a href="#labor"><span class="rj-no">01</span><span class="rj-t">Event Production Labor</span><span class="rj-s">Per hour · four-hour minimum per call</span></a><a href="#power"><span class="rj-no">02</span><span class="rj-t">Power &amp; Site</span><span class="rj-s">Generators, control room, barricades · per day</span></a><a href="#dj"><span class="rj-no">03</span><span class="rj-t">DJ &amp; Party Systems</span><span class="rj-s">Sound, karaoke, game shows · packages</span></a><a href="#movies"><span class="rj-no">04</span><span class="rj-t">Outdoor Movie Packages</span><span class="rj-s">Inflatable screens, projection &amp; sound</span></a><a href="#stages"><span class="rj-no">05</span><span class="rj-t">Stages &amp; Full Productions</span><span class="rj-s">From $1,995 — larger rigs quoted per event</span></a></div>
+  </div>
+</section>
+<section class="band tight rate-sec" id="labor">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left rv"><p class="kicker"><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span> 01 &middot; Event Production Labor</p></div>
+      <p class="right rv" data-d="1">Per hour · four-hour minimum per call</p>
+    </div>
+    <div class="spec-panel rv">
         <div class="spec-cap"><h3>Event Production Labor &middot; Per Hour</h3><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
         <table class="spec">
           <tbody>
@@ -110,8 +140,15 @@
         </table>
         <p class="spec-note">Four-hour minimum per call. Calls over 8 hours run time-and-a-half with a paid break or hot meal on site. Clients provide water for all techs.</p>
       </div>
-      <div>
-        <div class="spec-panel rv">
+  </div>
+</section>
+<section class="band tight rate-sec" id="power">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left rv"><p class="kicker"><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span> 02 &middot; Power &amp; Site</p></div>
+      <p class="right rv" data-d="1">Generators, control room, barricades · per day</p>
+    </div>
+    <div class="spec-panel rv">
           <div class="spec-cap"><h3>Power &amp; Site &middot; Per Day</h3><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
           <table class="spec">
             <tbody>
@@ -126,7 +163,15 @@
           </table>
           <p class="spec-note">MOJO barricade, cable ramps, FOH trailers, motorhome and scaffolding at day rates — call for availability.</p>
         </div>
-        <div class="spec-panel rv" style="margin-top:22px">
+  </div>
+</section>
+<section class="band tight rate-sec" id="dj">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left rv"><p class="kicker"><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span> 03 &middot; DJ &amp; Party Systems</p></div>
+      <p class="right rv" data-d="1">Sound, karaoke, game shows · packages</p>
+    </div>
+    <div class="spec-panel rv">
           <div class="spec-cap"><h3>DJ &amp; Party Systems</h3><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
           <table class="spec">
             <tbody>
@@ -140,8 +185,15 @@
             </tbody>
           </table>
         </div>
-      </div>
-      <div class="spec-panel rv">
+  </div>
+</section>
+<section class="band tight rate-sec" id="movies">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left rv"><p class="kicker"><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span> 04 &middot; Outdoor Movie Packages</p></div>
+      <p class="right rv" data-d="1">Inflatable screens, projection &amp; sound</p>
+    </div>
+    <div class="spec-panel rv">
         <div class="spec-cap"><h3>Outdoor Movie Packages</h3><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
         <table class="spec">
           <tbody>
@@ -156,7 +208,15 @@
           </tbody>
         </table>
       </div>
-      <div class="spec-panel rv">
+  </div>
+</section>
+<section class="band tight rate-sec" id="stages">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left rv"><p class="kicker"><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span> 05 &middot; Stages &amp; Full Productions</p></div>
+      <p class="right rv" data-d="1">From $1,995 — larger rigs quoted per event</p>
+    </div>
+    <div class="spec-panel rv">
         <div class="spec-cap"><h3>Stages &amp; Full Productions</h3><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
         <table class="spec">
           <tbody>
@@ -168,10 +228,9 @@
         </table>
         <p class="spec-note">Stage pricing moves with dates, distance and configuration — tell us the show and we'll price the whole rig in one quote. <a class="arrow-link" href="quote.html" style="margin-top:8px">Get a quote</a></p>
       </div>
-    </div>
-    <p class="rates-foot rv"><b>Rates as published by Reflections Productions.</b> Availability is first-come — July and December book out fastest. Every line above can ride on the same truck as your stage.</p>
   </div>
 </section>
+<section class="band tight"><div class="wrap"><p class="rates-foot rv"><b>Rates as published by Reflections Productions.</b> Availability is first-come — July and December book out fastest. Every line above can ride on the same truck as your stage.</p></div></section>
 <section class="quote compact">
   <div class="wrap">
     <span class="kicker rv">Tell us the rider — we'll price the whole rig</span>
@@ -219,7 +278,8 @@
         <h4>Site</h4>
         <ul>
           <li><a href="stages/index.html">Stage Fleet</a></li>
-          <li><a href="production/index.html">Production</a><a href="rates.html">Rates</a></li>
+          <li><a href="production/index.html">Production</a></li>
+          <li><a href="rates.html">Rates</a></li>
           <li><a href="work/index.html">Our Work</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="quote.html">Get a Quote</a></li>

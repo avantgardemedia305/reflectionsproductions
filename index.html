@@ -77,6 +77,39 @@
 .vmodal .vm-close:hover{border-color:var(--coral);color:var(--coral)}
 @media(max-width:900px){.path-grid,.steps-row{grid-template-columns:1fr}.rates-tease{padding:34px 26px}}
 </style>
+<style>
+.nav-social{display:flex;gap:14px;align-items:center;margin:0 18px 0 6px;color:rgba(244,239,230,.65)}
+.nav-social a{color:inherit;display:flex;transition:.15s}
+.nav-social a:hover{color:#3FA796;transform:translateY(-1px)}
+@media(max-width:1080px){.nav-social{display:none}}
+footer .f-social a svg{vertical-align:-4px;margin-right:9px}
+</style>
+<style>
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.testi{margin:0;border:1px solid rgba(63,167,150,.28);padding:26px 24px;background:rgba(19,94,84,.07);position:relative}
+.testi .t-tag{display:inline-block;font:600 9.5px/1 Archivo,Arial,sans-serif;letter-spacing:.14em;color:#FF6B4A;border:1px dashed rgba(255,107,74,.5);padding:5px 8px;margin-bottom:14px}
+.testi blockquote{margin:0 0 14px;font-size:15px;line-height:1.65;color:rgba(244,239,230,.85)}
+.testi figcaption{font-size:12.5px;letter-spacing:.06em;color:rgba(244,239,230,.5);text-transform:uppercase}
+.ig-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.ig-tile{display:block;aspect-ratio:1;overflow:hidden}
+.ig-tile img{width:100%;height:100%;object-fit:cover;transition:.35s;filter:saturate(.95)}
+.ig-tile:hover img{transform:scale(1.05)}
+.ig-embed{min-height:320px}
+.ig-embed iframe{margin:0 !important}
+.ig-cta{border:1px solid rgba(63,167,150,.3);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:16px;padding:24px;background:rgba(19,94,84,.08)}
+.ig-cta p{font-family:'Archivo Black',Arial,sans-serif;font-size:18px;line-height:1.35;margin:0;color:var(--sand)}
+.ig-others{font-size:13px}.ig-others a{color:var(--teal);text-decoration:none}
+@media(max-width:900px){.testi-grid{grid-template-columns:1fr}.ig-row{grid-template-columns:1fr}.ig-tile{max-height:340px}}
+</style>
+<style>
+.date-check{border:1px solid rgba(63,167,150,.35);background:rgba(19,94,84,.1);padding:30px 32px}
+.dc-head{display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;margin-bottom:18px}
+.dc-sub{margin:0;font-size:13.5px;color:rgba(244,239,230,.6)}
+.dc-fields{display:grid;grid-template-columns:1fr 1.4fr 1fr auto;gap:14px;align-items:end}
+.dc-fields label{display:flex;flex-direction:column;gap:7px;font:600 11px/1 Archivo,Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.65)}
+.dc-fields input,.dc-fields select{background:#0C1414;border:1px solid rgba(63,167,150,.4);color:#F4EFE6;padding:13px 14px;font:400 16px/1 Archivo,Arial,sans-serif;color-scheme:dark}
+@media(max-width:900px){.dc-fields{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -107,6 +140,7 @@
     <div class="nav-links">
       <a href="stages/index.html">Stage Fleet</a><a href="production/index.html">Production</a><a href="rates.html">Rates</a><a href="work/index.html">Our Work</a><a href="about.html">About</a>
     </div>
+    <span class="nav-social" aria-label="Social media"><a class="f-social-a" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.3.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.3C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.4-.6.7-.8 1.2-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.4.4.7.6 1.2.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.4.6-.7.8-1.2.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.4-.4-.7-.6-1.2-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 1.8a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2zm5.1-2.9a1.1 1.1 0 1 1 0 2.3 1.1 1.1 0 0 1 0-2.3z"/></svg></a><a class="f-social-a" href="https://www.facebook.com/ReflectionsProductions/" target="_blank" rel="noopener" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a><a class="f-social-a" href="https://www.youtube.com/@reflectionsproductions8660" target="_blank" rel="noopener" target="_blank" rel="noopener" aria-label="Youtube"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12c0 1.9.2 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.3-1.9.5-3.9.5-5.8s-.2-3.9-.5-5.8zM9.5 15.6V8.4L15.8 12l-6.3 3.6z"/></svg></a><a class="f-social-a" href="https://x.com/Reflectionsprod" target="_blank" rel="noopener" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M18.2 2h3.3l-7.3 8.4L22.8 22h-6.7l-5.3-6.9L4.8 22H1.5l7.8-9L1.2 2h6.9l4.8 6.3L18.2 2zm-1.2 18h1.8L6.9 3.9H4.9L17 20z"/></svg></a></span>
     <a class="btn btn-coral" href="quote.html">Get a Quote</a>
     <button class="nav-burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><i></i><i></i><i></i></button>
   </div>
@@ -148,6 +182,21 @@
     <div class="stat rv" data-d="1"><div class="v">8 <em>Stages</em></div><div class="l">APEX hydraulic mobile fleet</div></div>
     <div class="stat rv" data-d="2"><div class="v">JBL <em>Audio</em></div><div class="l">Concert-grade sound systems</div></div>
     <div class="stat rv" data-d="3"><div class="v">Same-Day <em>Quotes</em></div><div class="l">Tell us the date &amp; crowd</div></div>
+  </div>
+</section>
+
+<section class="band tight" id="check-date" aria-label="Check your date">
+  <div class="wrap">
+    <form class="date-check rv" action="quote.html" method="GET">
+      <div class="dc-head"><p class="kicker" style="margin:0"><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span> Check Your Date</p>
+      <p class="dc-sub">July &amp; December book out fastest — see if yours is open.</p></div>
+      <div class="dc-fields">
+        <label>Event date<input type="date" name="date" required></label>
+        <label>City / venue<input type="text" name="location" placeholder="e.g. Bayfront Park, Miami" required></label>
+        <label>Expected crowd<select name="attendance"><option>Under 1,000</option><option>1,000–2,500</option><option>2,500–8,000</option><option>8,000–20,000</option><option>20,000+</option></select></label>
+        <button class="btn btn-coral" type="submit">Check Availability</button>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -207,7 +256,7 @@
             <li>Travels at 13&prime;3&Prime; tall &times; 102&Prime; wide &middot; 55,165 lb trailer</li>
             <li>3.0 GPM hydraulic lift system</li>
           </ul>
-          <div class="card-foot"><span class="spec-link">View the 5040</span><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+          <div class="card-foot"><span class="spec-link">View the 5040 &middot; now in 3D</span><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
         </div>
         <a class="card-cover" href="stages/apex-5040.html" aria-label="APEX 5040 details"></a>
       </article>
@@ -336,6 +385,31 @@
   </div>
 </section>
 
+<section class="band tight" id="testimonials" aria-label="Testimonials">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left rv">
+        <p class="kicker"><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span> Word Backstage</p>
+        <h2>What Clients<br><span class="ghost">Say</span></h2>
+      </div>
+      <p class="right rv" data-d="1">Fifty years of shows leaves a trail of happy promoters. Real quotes are being collected now — these slots show where they'll live.</p>
+    </div>
+    <div class="testi-grid">
+      <!-- SAMPLE COPY for pitch purposes — replace with real client quotes before launch -->
+      <figure class="testi rv">
+        <blockquote>&ldquo;The stage was up before lunch and the fire marshal didn't have a single question left. That's what fifty years of doing this looks like.&rdquo;</blockquote>
+        <figcaption>Events Coordinator &middot; Municipal 4th of July Celebration</figcaption></figure>
+      <figure class="testi rv" data-d="1">
+        <blockquote>&ldquo;One call covered the stage, sound, lights and crew. Our New Year's broadcast hit its midnight cue to the second — in front of thousands.&rdquo;</blockquote>
+        <figcaption>Show Producer &middot; Downtown Miami NYE Celebration</figcaption></figure>
+      <figure class="testi rv" data-d="2">
+        <blockquote>&ldquo;They rolled a 50-foot stage a thousand miles, stood it up in hours, and our headliners played it that same night. Unreal operation.&rdquo;</blockquote>
+        <figcaption>Operations Director &middot; Multi-Day Music Festival</figcaption></figure>
+    </div>
+    <p class="rv" style="margin-top:22px;font-size:13.5px;color:rgba(244,239,230,.55)">Have a review on Google or Yelp? <a href="https://www.yelp.com/biz/reflections-productions-princeton" target="_blank" rel="noopener" style="color:var(--teal)">We'd love to feature it.</a></p>
+  </div>
+</section>
+
 <section class="band tight" id="how" aria-label="How it works">
   <div class="wrap">
     <div class="sec-head">
@@ -388,6 +462,36 @@
   </div>
 </section>
 
+
+<section class="band tight" id="follow" aria-label="Follow Reflections Productions">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left rv">
+        <p class="kicker"><span class="wl" aria-hidden="true"><i></i><i></i><i></i><i></i></span> Backstage Pass</p>
+        <h2>Follow the<br><span class="ghost">Shows</span></h2>
+      </div>
+      <p class="right rv" data-d="1">Load-ins, drone flights and full builds — the crew posts the shows as they happen. <b>@reflectionsproductions</b></p>
+    </div>
+    <div class="ig-row">
+      <a class="ig-tile rv" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener"><img src="assets/img/work-cs/hialeah-05.jpg" alt="Backstage at the Hialeah 4th of July build" loading="lazy"></a>
+      <a class="ig-tile rv" data-d="1" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener"><img src="assets/img/work-cs/hialeah-09.jpg" alt="Stage rigging going up at night" loading="lazy"></a>
+      <div class="ig-embed rv" data-d="2">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DMyeRAZCZo1/" data-instgrm-version="14" style="margin:0;max-width:100%;min-width:unset;background:#0F1B1A;border:1px solid rgba(63,167,150,.3)">
+          <a href="https://www.instagram.com/reel/DMyeRAZCZo1/" target="_blank" rel="noopener" style="display:block;padding:40px 20px;color:#3FA796;text-align:center;font:600 13px/1.5 Archivo,Arial,sans-serif">Watch the latest reel from @reflectionsproductions &rarr;</a>
+        </blockquote>
+        <script async src="https://www.instagram.com/embed.js"></script>
+      </div>
+      <div class="ig-cta rv" data-d="3">
+        <!-- TO EMBED A REEL: paste the Instagram embed code (from the reel's Share > Embed menu)
+             in place of this block, keeping the follow button below it. -->
+        <p>See the next build<br>before the crowd does.</p>
+        <a class="btn btn-coral" href="https://www.instagram.com/reflectionsproductions/" target="_blank" rel="noopener">Follow on Instagram</a>
+        <div class="ig-others"><a href="https://www.facebook.com/ReflectionsProductions/" target="_blank" rel="noopener">Facebook</a> &middot; <a href="https://www.youtube.com/@reflectionsproductions8660" target="_blank" rel="noopener">YouTube</a> &middot; <a href="https://x.com/Reflectionsprod" target="_blank" rel="noopener">X</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="quote">
   <div class="wrap">
     <span class="kicker rv">Dates go fast — especially July &amp; December</span>
@@ -435,7 +539,8 @@
         <h4>Site</h4>
         <ul>
           <li><a href="stages/index.html">Stage Fleet</a></li>
-          <li><a href="production/index.html">Production</a><a href="rates.html">Rates</a></li>
+          <li><a href="production/index.html">Production</a></li>
+          <li><a href="rates.html">Rates</a></li>
           <li><a href="work/index.html">Our Work</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="quote.html">Get a Quote</a></li>
