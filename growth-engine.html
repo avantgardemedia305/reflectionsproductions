@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reflections Growth Engine — 12-Month Sales &amp; Lead Generation Mission</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   REFLECTIONS GROWTH ENGINE — brand tokens
+   Chart series snapped to validated steps (dataviz six checks,
+   dark surface #0C1414): pair #2fa492/#e66a4f PASS · ordinal
+   ramp #7ed8c7 #51b9a7 #2b9a89 #027466 PASS.
+   ============================================================ */
+:root{
+  --bg:#0C1414;
+  --bg-card:#111D1C;
+  --bg-card-2:#0F1A19;
+  --bg-internal:#181414;
+  --bg-internal-card:#1E1817;
+  --ink:#F4EFE6;
+  --ink-mut:#9DB8B2;
+  --ink-soft:#C9D8D3;
+  --teal:#3FA796;
+  --teal-deep:#135E54;
+  --coral:#FF6B4A;
+  --line:rgba(63,167,150,.16);
+  --line-soft:rgba(244,239,230,.09);
+  /* validated chart steps */
+  --s-teal:#2fa492;
+  --s-coral:#e66a4f;
+  --g1:#7ed8c7; --g2:#51b9a7; --g3:#2b9a89; --g4:#027466;
+  --font-display:'Anton', Impact, 'Arial Narrow', sans-serif;
+  --font-body:'Archivo', Helvetica, Arial, sans-serif;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  background-image:radial-gradient(1100px 520px at 50% -140px, rgba(19,94,84,.38), transparent 70%);
+  background-repeat:no-repeat;
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:15.5px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1160px; margin:0 auto; padding:0 32px;}
+strong{font-weight:800;}
+em{font-style:italic;}
+
+/* ---------- header ---------- */
+header.masthead{padding:52px 0 0; text-align:center;}
+.mark{display:inline-block; margin-bottom:10px;}
+h1.hero{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:clamp(46px, 6.4vw, 84px);
+  line-height:1.02;
+  letter-spacing:.015em;
+  text-transform:uppercase;
+  color:var(--ink);
+}
+.waterline{
+  height:1px; width:min(880px, 86%); margin:14px auto 0;
+  background:linear-gradient(90deg, transparent, rgba(63,167,150,.85) 16%, rgba(63,167,150,.85) 84%, transparent);
+}
+.hero-reflect-clip{
+  height:.78em;
+  font-size:clamp(46px, 6.4vw, 84px);
+  overflow:hidden;
+  -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1), transparent 92%);
+          mask-image:linear-gradient(to bottom, rgba(0,0,0,1), transparent 92%);
+}
+.hero-reflect{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:1em;
+  line-height:1.02;
+  letter-spacing:.015em;
+  text-transform:uppercase;
+  color:var(--ink);
+  transform:scaleY(-1);
+  opacity:.12;
+  filter:blur(1.6px);
+}
+.hero-sub{
+  margin-top:6px;
+  color:var(--ink-mut);
+  font-size:14.5px;
+  letter-spacing:.06em;
+}
+.hero-sub .dot{color:var(--coral);}
+
+/* ---------- tab nav ---------- */
+nav.tabs{
+  position:sticky; top:0; z-index:50;
+  margin-top:34px;
+  background:rgba(12,20,20,.94);
+  backdrop-filter:blur(8px);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.tabbar{display:flex; justify-content:center; gap:6px; flex-wrap:wrap;}
+.tab-btn{
+  appearance:none; background:none; border:none; cursor:pointer;
+  font-family:var(--font-body); font-weight:600;
+  font-size:13.5px; letter-spacing:.05em;
+  color:var(--ink-mut);
+  padding:17px 16px 15px;
+  position:relative;
+  transition:color .15s ease;
+  white-space:nowrap;
+}
+.tab-btn .num{color:var(--coral); font-weight:800; font-size:11px; margin-right:7px; letter-spacing:.08em;}
+.tab-btn:hover{color:var(--ink);}
+.tab-btn:focus-visible{outline:2px solid var(--teal); outline-offset:-2px; border-radius:4px;}
+.tab-btn::after{
+  content:""; position:absolute; left:14px; right:14px; bottom:-1px; height:3px;
+  background:var(--coral); border-radius:2px 2px 0 0;
+  transform:scaleX(0); transition:transform .18s ease;
+}
+.tab-btn[aria-selected="true"]{color:var(--ink);}
+.tab-btn[aria-selected="true"]::after{transform:scaleX(1);}
+.tab-btn.internal{color:#6E827D; opacity:.62;}
+.tab-btn.internal .num{color:#6E827D;}
+.tab-btn.internal:hover{opacity:.9; color:var(--ink-mut);}
+.tab-btn.internal[aria-selected="true"]{opacity:1; color:var(--ink-mut);}
+
+/* ---------- panels ---------- */
+.panel{padding:54px 0 30px;}
+.panel[hidden]{display:none;}
+.tab-kicker{
+  font-size:11.5px; font-weight:800; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--coral); margin-bottom:14px;
+}
+h2.tab-head{
+  font-family:var(--font-display); font-weight:400;
+  font-size:clamp(30px, 3.5vw, 46px);
+  line-height:1.08; letter-spacing:.012em; text-transform:uppercase;
+  max-width:980px;
+}
+h2.tab-head .accent{color:var(--coral);}
+.tab-intro{margin-top:16px; max-width:860px; color:var(--ink-soft); font-size:16px;}
+.tab-sub{margin-top:12px; color:var(--ink-mut); font-size:14px; letter-spacing:.05em;}
+
+/* light-beam divider + section heads */
+.beam{height:2px; background:linear-gradient(90deg, rgba(63,167,150,.9), rgba(63,167,150,0) 78%); margin:46px 0 0; border-radius:1px;}
+.section{margin-top:22px;}
+h3.sec{
+  font-family:var(--font-display); font-weight:400;
+  font-size:23px; letter-spacing:.03em; text-transform:uppercase;
+  color:var(--ink); margin-bottom:6px;
+}
+h3.sec .tag{color:var(--teal);}
+.sec-note{color:var(--ink-mut); font-size:13.5px; margin-bottom:18px;}
+
+/* ---------- generic cards ---------- */
+.card{
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:24px 26px;
+}
+.grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+.grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:18px;}
+.grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+@media (max-width:940px){ .grid-3,.grid-4{grid-template-columns:1fr 1fr;} }
+@media (max-width:640px){ .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;} }
+
+/* thesis blocks */
+.thesis h4{font-size:16.5px; font-weight:800; margin-bottom:8px; line-height:1.35;}
+.thesis h4 .n{color:var(--coral); font-family:var(--font-display); font-weight:400; font-size:24px; margin-right:9px; vertical-align:-2px;}
+.thesis p{color:var(--ink-mut); font-size:14px;}
+.thesis p strong{color:var(--ink-soft);}
+
+/* phase cards */
+.phase-card{
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-left:3px solid var(--coral);
+  border-radius:0 14px 14px 0;
+  padding:20px 20px 22px;
+}
+.phase-card .chiprow{display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap;}
+.chip{
+  display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  padding:4px 10px; border-radius:999px; white-space:nowrap;
+}
+.chip.coral{background:var(--coral); color:var(--bg);}
+.chip.teal{background:rgba(63,167,150,.14); color:var(--teal); border:1px solid rgba(63,167,150,.45);}
+.chip.ghost{background:transparent; color:var(--ink-mut); border:1px solid var(--line-soft);}
+.phase-card .dates{font-size:12px; color:var(--ink-mut); letter-spacing:.08em; text-transform:uppercase; font-weight:600;}
+.phase-card h4{
+  font-family:var(--font-display); font-weight:400; font-size:21px;
+  letter-spacing:.03em; text-transform:uppercase; margin-bottom:8px;
+}
+.phase-card p{color:var(--ink-mut); font-size:13.5px;}
+.phase-card p strong{color:var(--ink-soft);}
+
+/* ---------- GANTT ---------- */
+.gantt{margin-top:8px;}
+.gantt-grid{display:grid; grid-template-columns:196px 1fr; row-gap:0;}
+.gantt-months{
+  display:grid; grid-template-columns:repeat(12,1fr);
+  border-bottom:1px solid var(--line-soft);
+  padding-bottom:8px; margin-bottom:14px;
+}
+.gantt-months span{
+  text-align:center; font-size:10.5px; font-weight:800; letter-spacing:.12em;
+  color:var(--ink-mut); text-transform:uppercase;
+}
+.gantt-months span b{display:block; color:var(--coral); font-size:9px; letter-spacing:.14em; font-weight:800;}
+.gantt-label{
+  display:flex; flex-direction:column; justify-content:center;
+  padding-right:18px; height:44px;
+}
+.gantt-label .p{font-size:12.5px; font-weight:800; letter-spacing:.05em;}
+.gantt-label .p i{font-style:normal; color:var(--coral); margin-right:6px;}
+.gantt-label .d{font-size:11px; color:var(--ink-mut); letter-spacing:.04em;}
+.gantt-row{position:relative; height:44px;}
+.gantt-lines{
+  position:absolute; inset:0;
+  background-image:linear-gradient(90deg, rgba(244,239,230,.07) 0 1px, transparent 1px);
+  background-size:calc(100%/12) 100%;
+}
+.gantt-band{
+  position:absolute; top:9px; height:26px; border-radius:6px;
+  display:flex; align-items:center; padding:0 12px;
+  font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--bg); white-space:nowrap; overflow:visible;
+  transition:filter .15s ease;
+}
+.gantt-band:hover{filter:brightness(1.1);}
+.gantt-band.b1{background:linear-gradient(90deg, rgba(126,216,199,0) 0, var(--g1) 14px);}
+.gantt-band.b2{background:var(--g2);}
+.gantt-band.b3{background:var(--g3);}
+.gantt-band.b4{background:var(--g4); color:var(--ink);}
+.gantt-milestones{position:relative; height:104px; margin-top:10px;}
+.gantt-baseline{position:absolute; left:0; right:0; top:52px; height:1px; background:var(--line-soft);}
+.ms{position:absolute; top:0; width:0;}
+.ms .dot{
+  position:absolute; top:47px; left:-5.5px; width:11px; height:11px; border-radius:50%;
+  background:var(--coral); box-shadow:0 0 0 3px var(--bg), 0 0 14px rgba(255,107,74,.45);
+}
+.ms .lbl{
+  position:absolute; white-space:nowrap; font-size:11.5px; font-weight:600; color:var(--ink-soft);
+  letter-spacing:.02em; line-height:1.25;
+}
+.ms .lbl small{display:block; color:var(--ink-mut); font-size:10px; letter-spacing:.1em; text-transform:uppercase; font-weight:800;}
+.ms.up .lbl{top:2px; transform:translateX(-50%); text-align:center;}
+.ms.down .lbl{top:66px; transform:translateX(-50%); text-align:center;}
+.ms.edge-l .lbl{transform:none; text-align:left; left:-4px;}
+.ms.edge-r .lbl{transform:none; text-align:right; right:-4px;}
+.ms .stem{position:absolute; left:-.5px; width:1px; background:rgba(255,107,74,.5);}
+.ms.up .stem{top:34px; height:10px;}
+.ms.down .stem{top:61px; height:4px;}
+.gantt-cap{margin-top:10px; font-size:12px; color:var(--ink-mut);}
+
+/* why-now strip */
+.whynow{
+  margin-top:46px;
+  border:1px solid rgba(255,107,74,.4);
+  background:linear-gradient(90deg, rgba(255,107,74,.12), rgba(255,107,74,.03) 60%);
+  border-radius:14px; padding:22px 26px;
+  display:flex; gap:20px; align-items:flex-start;
+}
+.whynow .flag{
+  font-family:var(--font-display); font-weight:400; color:var(--coral);
+  font-size:19px; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap;
+  padding-top:2px;
+}
+.whynow p{color:var(--ink-soft); font-size:14.5px;}
+.whynow p strong{color:var(--coral);}
+
+/* ---------- tables ---------- */
+.tbl-wrap{overflow-x:auto; border-radius:12px; border:1px solid var(--line);}
+table.tbl{
+  width:100%; border-collapse:collapse; background:var(--bg-card-2);
+  font-size:13.5px;
+}
+table.tbl th{
+  background:var(--teal-deep); color:var(--ink);
+  text-align:left; font-size:10.5px; font-weight:800; letter-spacing:.09em; text-transform:uppercase;
+  padding:11px 14px; white-space:nowrap;
+}
+table.tbl.tight td:first-child{white-space:nowrap;}
+table.tbl td{
+  padding:13px 14px; border-top:1px solid var(--line-soft);
+  vertical-align:top; color:var(--ink-soft);
+}
+table.tbl td:first-child{font-weight:800; color:var(--ink);}
+table.tbl tbody tr{transition:background .12s ease;}
+table.tbl tbody tr:hover{background:rgba(63,167,150,.07);}
+table.tbl .num{font-variant-numeric:tabular-nums;}
+.deal{
+  display:inline-block; font-size:10px; font-weight:800; letter-spacing:.1em;
+  padding:3px 8px; border-radius:999px; white-space:nowrap;
+}
+.deal.high{color:var(--coral); border:1px solid rgba(255,107,74,.55); background:rgba(255,107,74,.1);}
+.deal.med{color:var(--teal); border:1px solid rgba(63,167,150,.5); background:rgba(63,167,150,.1);}
+.deal.low{color:var(--ink-mut); border:1px solid var(--line-soft); background:rgba(244,239,230,.04);}
+.tier-head{display:flex; align-items:baseline; gap:14px; margin-bottom:14px; flex-wrap:wrap;}
+.tier-head .sub{color:var(--ink-mut); font-size:13.5px;}
+.foot{margin-top:12px; font-size:12px; color:var(--ink-mut);}
+
+/* hit list callout */
+.callout{
+  border:1px solid rgba(63,167,150,.45);
+  box-shadow:0 0 28px rgba(63,167,150,.13), inset 0 0 40px rgba(63,167,150,.05);
+  border-radius:16px; padding:26px 28px;
+  background:var(--bg-card-2);
+}
+.pills{display:flex; flex-wrap:wrap; gap:9px; margin-top:16px;}
+.pill{
+  font-size:12.5px; font-weight:600; color:var(--ink-soft);
+  border:1px solid var(--line); border-radius:999px; padding:6px 13px;
+  background:rgba(63,167,150,.06); white-space:nowrap;
+}
+.pill.existing{border-color:rgba(255,107,74,.55); background:rgba(255,107,74,.1); color:var(--ink);}
+.pill.existing::before{content:"★ "; color:var(--coral);}
+
+/* ---------- lanes (tab 3) ---------- */
+.lane{margin-top:22px; border:1px solid var(--line); border-radius:16px; background:var(--bg-card); overflow:hidden;}
+.lane-head{
+  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  padding:18px 24px; border-bottom:1px solid var(--line-soft);
+  background:linear-gradient(90deg, rgba(19,94,84,.35), rgba(19,94,84,0) 70%);
+}
+.lane-badge{
+  font-family:var(--font-display); font-weight:400; font-size:15px; letter-spacing:.1em;
+  color:var(--bg); background:var(--coral); border-radius:8px; padding:5px 12px 4px;
+  text-transform:uppercase; white-space:nowrap;
+}
+.lane-head h3{
+  font-family:var(--font-display); font-weight:400; font-size:22px; letter-spacing:.03em;
+  text-transform:uppercase;
+}
+.lane-head h3 small{color:var(--ink-mut); font-family:var(--font-body); font-size:13px; font-weight:600; letter-spacing:.02em; text-transform:none; margin-left:6px;}
+.lane-body{padding:10px 24px 20px;}
+.lane-item{
+  padding:15px 0; border-top:1px solid var(--line-soft);
+  font-size:14px; color:var(--ink-mut);
+}
+.lane-item:first-child{border-top:none;}
+.lane-item b.lead{color:var(--ink); font-weight:800;}
+.lane-item .stat{color:var(--coral); font-weight:800;}
+.lane-item .src{color:var(--teal); font-weight:600; font-style:normal;}
+
+/* ---------- roadmap ---------- */
+.timing{
+  border:1px solid rgba(63,167,150,.45);
+  box-shadow:0 0 28px rgba(63,167,150,.12);
+  background:var(--bg-card-2); border-radius:16px; padding:22px 26px;
+  display:flex; gap:20px; align-items:flex-start;
+}
+.timing .flag{
+  font-family:var(--font-display); font-weight:400; color:var(--teal);
+  font-size:19px; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap; padding-top:2px;
+}
+.timing p{color:var(--ink-soft); font-size:14.5px;}
+.timing p strong{color:var(--ink);}
+.mile-block h4{
+  font-family:var(--font-display); font-weight:400; font-size:20px; letter-spacing:.04em;
+  text-transform:uppercase; margin-bottom:4px;
+}
+.mile-block .when{color:var(--coral); font-size:11.5px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; margin-bottom:12px;}
+ul.dash{list-style:none;}
+ul.dash li{
+  position:relative; padding:7px 0 7px 22px; color:var(--ink-mut); font-size:14px;
+  border-top:1px dashed rgba(244,239,230,.07);
+}
+ul.dash li:first-child{border-top:none;}
+ul.dash li::before{content:""; position:absolute; left:2px; top:14px; width:9px; height:2px; background:var(--teal); border-radius:1px;}
+ul.dash li strong{color:var(--ink-soft);}
+ul.dash li.exit{color:var(--ink-soft);}
+ul.dash li.exit::before{background:var(--coral);}
+ul.dash li.exit strong{color:var(--coral);}
+.rhythm{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px;}
+.rhythm span{
+  font-size:13px; font-weight:600; color:var(--ink-soft);
+  border:1px solid var(--line); background:rgba(63,167,150,.07);
+  border-radius:10px; padding:9px 14px;
+}
+.rhythm span::before{content:"✓ "; color:var(--teal); font-weight:800;}
+.months{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:16px;}
+@media (max-width:940px){ .months{grid-template-columns:repeat(2,1fr);} }
+.mcell{
+  background:var(--bg-card-2); border:1px solid var(--line-soft); border-radius:12px;
+  padding:13px 15px; font-size:12.5px; color:var(--ink-mut);
+}
+.mcell .mh{display:flex; align-items:baseline; gap:8px; margin-bottom:5px;}
+.mcell .mn{font-family:var(--font-display); font-weight:400; color:var(--coral); font-size:15px; letter-spacing:.05em;}
+.mcell .mo{font-size:10.5px; font-weight:800; letter-spacing:.14em; color:var(--ink-soft); text-transform:uppercase;}
+
+/* ---------- scoreboard ---------- */
+.tiles{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+@media (max-width:940px){ .tiles{grid-template-columns:1fr;} }
+.tile{
+  background:var(--bg-card); border:1px solid var(--line); border-radius:14px;
+  padding:20px 22px 18px;
+}
+.tile .t-label{
+  font-size:10.5px; font-weight:800; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--ink-mut); margin-bottom:10px;
+}
+.tile .t-value{
+  font-family:var(--font-display); font-weight:400; font-size:46px; line-height:1;
+  color:var(--ink); letter-spacing:.01em;
+}
+.tile .t-value .unit{font-size:24px; color:var(--ink-mut); letter-spacing:.02em;}
+.tile.coral .t-value{color:var(--coral);}
+.tile .t-sub{margin-top:10px; font-size:12.5px; color:var(--ink-mut);}
+.hero-strip{
+  margin:16px 0; border-radius:14px; padding:20px 26px;
+  background:linear-gradient(90deg, rgba(255,107,74,.16), rgba(255,107,74,.05));
+  border:1px solid rgba(255,107,74,.45);
+  text-align:center;
+}
+.hero-strip .big{
+  font-family:var(--font-display); font-weight:400; font-size:clamp(21px,2.4vw,30px);
+  letter-spacing:.03em; text-transform:uppercase; color:var(--ink);
+}
+.hero-strip .big em{font-style:normal; color:var(--coral);}
+.quoteline{
+  margin-top:18px; border-left:3px solid var(--coral); padding:6px 0 6px 18px;
+  color:var(--ink-mut); font-size:14px; font-style:italic;
+}
+/* lead-mix chart */
+.mix{margin-top:16px;}
+.mix-legend{display:flex; gap:22px; justify-content:flex-end; margin-bottom:14px;}
+.mix-legend span{font-size:12px; color:var(--ink-mut); font-weight:600; display:flex; align-items:center; gap:8px;}
+.mix-legend i{width:11px; height:11px; border-radius:3px; display:inline-block;}
+.mix-legend .k-out i{background:var(--s-teal);}
+.mix-legend .k-in i{background:var(--s-coral);}
+.mix-row{margin-bottom:16px;}
+.mix-row .rl{font-size:12.5px; font-weight:800; letter-spacing:.04em; margin-bottom:7px;}
+.mix-row .rl small{color:var(--ink-mut); font-weight:600; letter-spacing:.08em; font-size:10.5px; text-transform:uppercase; margin-left:8px;}
+.mix-bar{display:flex; gap:2px; height:24px;}
+.mix-seg{
+  display:flex; align-items:center; padding:0 12px;
+  font-size:10.5px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--bg);
+  white-space:nowrap; overflow:hidden;
+}
+.mix-seg.out{background:var(--s-teal); border-radius:4px 0 0 4px;}
+.mix-seg.in{background:var(--s-coral); border-radius:0 4px 4px 0; justify-content:flex-end;}
+.mix-seg .seg-lbl{overflow:visible;}
+.mix-cap{margin-top:6px; font-size:12px; color:var(--ink-mut);}
+.kpis{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px;}
+.kpis span{
+  font-size:13px; font-weight:600; color:var(--ink-soft);
+  border:1px solid var(--line); background:rgba(63,167,150,.07); border-radius:10px; padding:9px 14px;
+}
+.kpis span b{color:var(--coral);}
+.budget .b-title{font-weight:800; font-size:15px; margin-bottom:6px; color:var(--ink);}
+.budget .b-title .amt{color:var(--coral);}
+.budget p{color:var(--ink-mut); font-size:13.5px;}
+.smallprint{
+  margin-top:18px; border:1px dashed var(--line-soft); border-radius:12px; padding:16px 20px;
+  font-size:12.5px; color:var(--ink-mut); background:rgba(244,239,230,.02);
+}
+.smallprint b{color:var(--ink-soft);}
+
+/* ---------- internal ---------- */
+#panel-internal{background:transparent;}
+.internal-wrap{
+  background:var(--bg-internal);
+  border:1px solid rgba(255,107,74,.28);
+  border-radius:18px; padding:0 30px 30px; margin-top:6px;
+}
+.internal-banner{
+  margin:0 -30px 28px; border-radius:17px 17px 0 0;
+  background:repeating-linear-gradient(-45deg, var(--coral) 0 26px, #E5532F 26px 52px);
+  color:var(--bg); text-align:center; padding:16px 20px;
+  font-family:var(--font-display); font-weight:400;
+  font-size:clamp(19px, 2.3vw, 27px); letter-spacing:.09em; text-transform:uppercase;
+}
+.internal-wrap .card{background:var(--bg-internal-card); border-color:rgba(255,107,74,.16);}
+.internal-wrap .beam{background:linear-gradient(90deg, rgba(255,107,74,.75), rgba(255,107,74,0) 78%);}
+.internal-wrap h3.sec .tag{color:var(--coral);}
+ul.int{list-style:none;}
+ul.int li{
+  position:relative; padding:9px 0 9px 24px; color:var(--ink-mut); font-size:14px;
+  border-top:1px dashed rgba(244,239,230,.07);
+}
+ul.int li:first-child{border-top:none;}
+ul.int li::before{content:"→"; position:absolute; left:0; top:8px; color:var(--coral); font-weight:800;}
+ul.int li strong{color:var(--ink-soft);}
+ul.int li .say{color:var(--ink); font-style:italic;}
+/* effort bars */
+.effort-row{display:grid; grid-template-columns:300px 1fr; align-items:center; gap:14px; margin-bottom:11px;}
+.effort-row .el{font-size:13px; color:var(--ink-soft); font-weight:600;}
+.effort-track{position:relative; height:16px; background:rgba(244,239,230,.06); border-radius:4px;}
+.effort-fill{
+  position:absolute; left:0; top:0; bottom:0; background:var(--s-teal); border-radius:4px 0 0 4px;
+}
+.effort-fill::after{
+  content:attr(data-v); position:absolute; right:-8px; top:50%;
+  transform:translate(100%,-50%);
+  font-size:12px; font-weight:800; color:var(--ink); font-variant-numeric:tabular-nums;
+}
+.checklist{list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+@media (max-width:760px){ .checklist{grid-template-columns:1fr;} }
+.checklist li{
+  display:flex; gap:12px; align-items:flex-start; cursor:pointer;
+  border:1px solid var(--line-soft); border-radius:10px; padding:12px 14px;
+  font-size:13.5px; color:var(--ink-soft); background:rgba(244,239,230,.02);
+  transition:border-color .15s ease;
+}
+.checklist li:hover{border-color:rgba(255,107,74,.4);}
+.checklist li .box{
+  flex:none; width:18px; height:18px; border-radius:5px; margin-top:1px;
+  border:2px solid var(--coral); display:flex; align-items:center; justify-content:center;
+  font-size:12px; font-weight:800; color:var(--bg); background:transparent;
+}
+.checklist li.done{color:var(--ink);}
+.checklist li.done .box{background:var(--coral);}
+.checklist li.done .box::before{content:"✓";}
+.check-note{margin-top:10px; font-size:11.5px; color:var(--ink-mut); font-style:italic;}
+
+/* ---------- footer ---------- */
+footer{padding:26px 0 44px; text-align:center;}
+footer .beam-c{
+  height:2px; margin:0 auto 22px; width:min(560px,80%);
+  background:linear-gradient(90deg, transparent, rgba(63,167,150,.8), transparent);
+}
+footer p{font-size:12.5px; color:var(--ink-mut); letter-spacing:.04em;}
+footer p b{color:var(--ink-soft);}
+</style>
+</head>
+<body>
+
+<header class="masthead wrap">
+  <div class="mark" aria-hidden="true">
+    <!-- sun disc + palm + reflection slices (echo of the Sundown Spotlight mark) -->
+    <svg viewBox="0 0 96 96" width="78" height="78" role="img" aria-label="Reflections Productions mark">
+      <circle cx="48" cy="34" r="25" fill="#FF6B4A"/>
+      <g stroke="#0C1414" stroke-width="3.4" stroke-linecap="round" fill="none">
+        <path d="M44,60 C45,49 46.5,41 50,33"/>
+        <path d="M50,33 C41,28 33,27 26,31"/>
+        <path d="M50,33 C45,24 38,20 31,20"/>
+        <path d="M50,33 C51,23 48,16 43,13"/>
+        <path d="M50,33 C56,23 63,19 70,21"/>
+        <path d="M50,33 C59,28 67,29 73,35"/>
+      </g>
+      <g fill="#3FA796">
+        <rect x="26" y="66" width="44" height="3.2" rx="1.6" opacity=".9"/>
+        <rect x="32" y="73" width="32" height="3" rx="1.5" opacity=".62"/>
+        <rect x="38" y="80" width="20" height="2.8" rx="1.4" opacity=".4"/>
+        <rect x="42" y="86.5" width="12" height="2.6" rx="1.3" opacity=".25"/>
+      </g>
+    </svg>
+  </div>
+  <h1 class="hero">Reflections Growth Engine</h1>
+  <div class="waterline" aria-hidden="true"></div>
+  <div class="hero-reflect-clip" aria-hidden="true"><div class="hero-reflect">Reflections Growth Engine</div></div>
+  <p class="hero-sub">12-Month Sales &amp; Lead Generation Mission <span class="dot">·</span> Prepared by Avant Garde Media <span class="dot">·</span> July 2026</p>
+</header>
+
+<nav class="tabs" aria-label="Dashboard sections">
+  <div class="wrap tabbar" role="tablist">
+    <button class="tab-btn" role="tab" id="tab-1" aria-selected="true" aria-controls="panel-1"><span class="num">01</span>The Mission</button>
+    <button class="tab-btn" role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2" tabindex="-1"><span class="num">02</span>Who We Sell To</button>
+    <button class="tab-btn" role="tab" id="tab-3" aria-selected="false" aria-controls="panel-3" tabindex="-1"><span class="num">03</span>The Lead Engine</button>
+    <button class="tab-btn" role="tab" id="tab-4" aria-selected="false" aria-controls="panel-4" tabindex="-1"><span class="num">04</span>Roadmap</button>
+    <button class="tab-btn" role="tab" id="tab-5" aria-selected="false" aria-controls="panel-5" tabindex="-1"><span class="num">05</span>Scoreboard</button>
+    <button class="tab-btn internal" role="tab" id="tab-6" aria-selected="false" aria-controls="panel-internal" tabindex="-1"><span class="num">🔒</span>Internal</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============================= TAB 1 — THE MISSION ============================= -->
+<section class="panel wrap" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
+  <div class="tab-kicker">01 · The Mission — Overview</div>
+  <h2 class="tab-head">The brand makes you credible.<br><span class="accent">The Mission makes the phone ring.</span></h2>
+  <p class="tab-sub">A 12-month sales engine for Reflections Productions · Prepared by Avant Garde Media · July 2026</p>
+
+  <div class="beam"></div>
+  <div class="section">
+    <h3 class="sec">The thesis</h3>
+    <div class="grid-3">
+      <div class="card thesis">
+        <h4><span class="n">1</span>You don't have a demand problem — you have a visibility problem.</h4>
+        <p>South Florida produces hundreds of staged outdoor events a year. Reflections has <strong>50 years of proof</strong> and <strong>7 stages of inventory</strong>, and almost none of the buyers doing the hiring can find them or have heard from them.</p>
+      </div>
+      <div class="card thesis">
+        <h4><span class="n">2</span>Stage inventory is perishable.</h4>
+        <p>7 stages × ~30 high-season weekends ≈ <strong>200+ stage-weekends a year</strong>. A stage that sits in the yard on an event weekend is revenue that expires. The Mission's job: <strong>fill dark weekends</strong>.</p>
+      </div>
+      <div class="card thesis">
+        <h4><span class="n">3</span>The buying cycle is annual — so the plan is annual.</h4>
+        <p>Municipal fiscal years turn over Oct 1. Festivals book 6–12 months out. Fair contracts lock right after the prior fair. A 3-month push can't touch a 12-month buying cycle; <strong>seeds planted in Q1 close in Q3 and Q4</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="beam"></div>
+  <div class="section">
+    <h3 class="sec">The sequence <span class="tag">— warmest, cheapest money first</span></h3>
+    <div class="grid-4">
+      <div class="phase-card">
+        <div class="chiprow"><span class="chip coral">Phase 1 · Foundation</span></div>
+        <div class="dates">Now – Sep '26</div>
+        <h4>Launch the front door</h4>
+        <p>Site live, quote funnel + call tracking + CRM, Google Business Profile rebuilt, review engine, social engine live <strong>(built — 245 pieces ready)</strong>, vendor registrations filed.</p>
+      </div>
+      <div class="phase-card">
+        <div class="chiprow"><span class="chip coral">Phase 2 · Reactivate + Hunt</span></div>
+        <div class="dates">Sep – Nov '26</div>
+        <h4>Warm money first</h4>
+        <p>50 years of past clients into a database, <strong>"The New Reflections"</strong> announcement campaign, then named-account outbound to the buyers who should already know you.</p>
+      </div>
+      <div class="phase-card">
+        <div class="chiprow"><span class="chip coral">Phase 3 · Amplify</span></div>
+        <div class="dates">Nov '26 – Jan '27</div>
+        <h4>Paid reach, timed to peak season</h4>
+        <p>Google Ads on buyer keywords, remarketing, NYE-season push — launched <strong>only once the funnel is proven to convert</strong>.</p>
+      </div>
+      <div class="phase-card">
+        <div class="chiprow"><span class="chip coral">Phase 4 · Compound</span></div>
+        <div class="dates">Jan – Jul '27</div>
+        <h4>Make it permanent</h4>
+        <p>Stage-spec SEO pages, case studies from the season we just worked, referral network, live RFP pipeline. <strong>Assets that keep producing after the spend stops.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="beam"></div>
+  <div class="section">
+    <h3 class="sec">Twelve months on one line</h3>
+    <p class="sec-note">M1 = Aug 2026 … M12 = Jul 2027 · phases overlap at the edges by design</p>
+    <div class="card gantt" role="img" aria-label="12-month phase timeline: Phase 1 Foundation now to September 2026; Phase 2 Reactivate and Hunt September to November 2026; Phase 3 Amplify November 2026 to January 2027; Phase 4 Compound January to July 2027. Milestones: Site live in August, FY27 RFP season opens in October, Ads live and NYE push November to December, Renewal scoreboard July 2027.">
+      <div class="gantt-grid">
+        <div></div>
+        <div class="gantt-months">
+          <span>Aug<b>'26</b></span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan<b>'27</b></span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span>
+        </div>
+
+        <div class="gantt-label"><span class="p"><i>P1</i>Foundation</span><span class="d">Now – Sep '26</span></div>
+        <div class="gantt-row"><div class="gantt-lines"></div>
+          <div class="gantt-band b1" style="left:0%; width:16.667%;" title="Phase 1 · Foundation — launch the front door (Now – Sep '26)"></div>
+        </div>
+
+        <div class="gantt-label"><span class="p"><i>P2</i>Reactivate + Hunt</span><span class="d">Sep – Nov '26</span></div>
+        <div class="gantt-row"><div class="gantt-lines"></div>
+          <div class="gantt-band b2" style="left:8.333%; width:25%;" title="Phase 2 · Reactivate + Hunt — warm money first (Sep – Nov '26)"></div>
+        </div>
+
+        <div class="gantt-label"><span class="p"><i>P3</i>Amplify</span><span class="d">Nov '26 – Jan '27</span></div>
+        <div class="gantt-row"><div class="gantt-lines"></div>
+          <div class="gantt-band b3" style="left:25%; width:25%;" title="Phase 3 · Amplify — paid reach, timed to peak season (Nov '26 – Jan '27)"></div>
+        </div>
+
+        <div class="gantt-label"><span class="p"><i>P4</i>Compound</span><span class="d">Jan – Jul '27</span></div>
+        <div class="gantt-row"><div class="gantt-lines"></div>
+          <div class="gantt-band b4" style="left:41.667%; width:58.333%;" title="Phase 4 · Compound — make it permanent (Jan – Jul '27)"></div>
+        </div>
+
+        <div></div>
+        <div class="gantt-milestones">
+          <div class="gantt-baseline"></div>
+          <div class="ms up edge-l" style="left:4.17%;"><span class="stem"></span><span class="dot"></span><span class="lbl"><small>Aug</small>Site live</span></div>
+          <div class="ms down" style="left:20.83%;"><span class="stem"></span><span class="dot"></span><span class="lbl"><small>Oct</small>FY27 RFP season opens</span></div>
+          <div class="ms up" style="left:33.333%;"><span class="stem"></span><span class="dot"></span><span class="lbl"><small>Nov–Dec</small>Ads live / NYE push</span></div>
+          <div class="ms down edge-r" style="left:95.83%;"><span class="stem"></span><span class="dot"></span><span class="lbl"><small>Jul '27</small>Renewal scoreboard</span></div>
+        </div>
+      </div>
+      <p class="gantt-cap">Phase 1 begins in the launch sprint (signing → Jul 31, 2026), ahead of Month 1 — the faded left edge marks work already underway.</p>
+    </div>
+  </div>
+
+  <div class="whynow">
+    <div class="flag">Why now</div>
+    <p>Florida city &amp; county fiscal years start <strong>October 1</strong>. Special-events divisions are finalizing FY2027 event calendars and vendor rosters right now (July–Sept), and FY2027 event RFPs post <strong>Aug–Dec</strong>. Vendor registration + face time has to happen in the next 60 days — or Reflections waits out another fiscal year eligible for nothing.</p>
+  </div>
+</section>
+
+<!-- ============================= TAB 2 — WHO WE SELL TO ============================= -->
+<section class="panel wrap" id="panel-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+  <div class="tab-kicker">02 · Who We Sell To — Target Markets</div>
+  <h2 class="tab-head">Twelve markets rent stages in South Florida. <span class="accent">We hunt them in order.</span></h2>
+  <p class="tab-intro">Ranked by deal size × fit with the fleet × how warm Reflections already is. Tier 1 gets named-account outbound from day one; Tier 2 gets sequenced outreach from Phase 2; Tier 3 fills open dates opportunistically.</p>
+
+  <div class="beam"></div>
+  <div class="section">
+    <div class="tier-head">
+      <span class="chip coral">Tier 1 — Hunt First</span>
+      <span class="sub">Big checks, annual contracts, proof already in hand</span>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th style="width:22%">Vertical</th><th style="width:20%">Who signs</th><th style="width:9%">Deal size</th><th style="width:23%">When they book</th><th>The angle</th></tr></thead>
+        <tbody>
+          <tr><td>Municipal parks &amp; rec / special events</td><td>Special Events Manager · Parks &amp; Rec Director</td><td><span class="deal high">High</span></td><td>6–12 mo out · FY runs Oct–Sep · RFPs post Aug–Dec</td><td>Already trusted: Hialeah 4th of July. Get vendor-registered everywhere NOW; be first in line when FY27 RFPs post</td></tr>
+          <tr><td>Festival &amp; concert promoters</td><td>Production Manager · Site Ops Director</td><td><span class="deal high">High</span></td><td>6–12 mo out, fixed annual dates</td><td>Approach right after this year's edition wraps, before next year's site plan locks</td></tr>
+          <tr><td>Cultural festivals (Calle Ocho, Miami Carnival, Junkanoo…)</td><td>Festival Exec Director · City Cultural Affairs</td><td><span class="deal high">High</span></td><td>9–12 mo out, fixed calendar</td><td>Target the organizing nonprofits directly (e.g., Kiwanis of Little Havana runs Calle Ocho); lead with 50 yrs of Miami heritage</td></tr>
+          <tr><td>County &amp; regional fairs (South FL Fair, Youth Fair)</td><td>Fair CEO · Entertainment Director</td><td><span class="deal high">High</span></td><td>9–12 mo out, multi-week runs</td><td>Pitch the entertainment committee immediately post-fair for next cycle</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="beam"></div>
+  <div class="section">
+    <div class="tier-head">
+      <span class="chip teal">Tier 2 — Sequenced Outreach</span>
+      <span class="sub">Steady mid-size volume</span>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th style="width:22%">Vertical</th><th style="width:20%">Who signs</th><th style="width:9%">Deal size</th><th style="width:23%">When they book</th><th>The angle</th></tr></thead>
+        <tbody>
+          <tr><td>Corporate planners / DMCs</td><td>DMC Owner/Producer · Corp Events Director</td><td><span class="deal med">Med–High</span></td><td>1–6 mo, event-driven; Miami is a top-3 US DMC market</td><td>Become the stage/production sub DMCs call when corporate RFPs land; work ILEA/MPI/ADMEI rooms</td></tr>
+          <tr><td>Sports events (marathons, fan zones)</td><td>Race Director · Event Ops Manager</td><td><span class="deal med">Med</span></td><td>4–9 mo out</td><td>Finish-line stage + fan-zone package as a bundle</td></tr>
+          <tr><td>Schools &amp; universities (FIU, UM, MDC)</td><td>Director of Campus Events</td><td><span class="deal med">Med</span></td><td>3–6 mo; spring grad + fall homecoming peaks</td><td>Reach campus event services before the academic calendar locks</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="beam"></div>
+  <div class="section">
+    <div class="tier-head">
+      <span class="chip ghost">Tier 3 — Fill the Calendar</span>
+      <span class="sub">Smaller checks, great utilization + referrals</span>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th style="width:22%">Vertical</th><th style="width:20%">Who signs</th><th style="width:9%">Deal size</th><th style="width:23%">When they book</th><th>The angle</th></tr></thead>
+        <tbody>
+          <tr><td>Hospitality / resorts</td><td>Director of Catering &amp; Events</td><td><span class="deal med">Med</span></td><td>2–6 mo</td><td>Preferred outdoor-production sub for buyouts the resort can't stage in-house</td></tr>
+          <tr><td>HOAs / master-planned communities</td><td>Lifestyle Manager (via Castle Group, FirstService)</td><td><span class="deal low">Low–Med</span></td><td>2–4 mo, holiday-driven</td><td>One call to a management company = dozens of communities</td></tr>
+          <tr><td>Nonprofits (galas, walks/runs)</td><td>Development / Events Director</td><td><span class="deal low">Low–Med</span></td><td>3–6 mo</td><td>One flagship in-kind/discounted event buys a referral network</td></tr>
+          <tr><td>Churches &amp; religious events</td><td>Events Pastor · Facilities Director</td><td><span class="deal low">Low–Med</span></td><td>Easter/Christmas peaks</td><td>Relationship outreach to South FL megachurches doing outdoor services</td></tr>
+          <tr><td>Film/TV production</td><td>Location Manager · Production Coordinator</td><td><span class="deal low">Low–Med</span></td><td>1–3 mo <span style="color:var(--ink-mut)">(high per job)</span></td><td>Register as approved equipment vendor with Miami-Dade &amp; Broward film offices</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="beam"></div>
+  <div class="section">
+    <div class="callout">
+      <h3 class="sec">The named hit list <span class="tag">— 18 annual events that need staging</span></h3>
+      <div class="pills">
+        <span class="pill existing">Hialeah 4th of July (Jul, existing)</span>
+        <span class="pill existing">Big Orange NYE (Dec 31, existing)</span>
+        <span class="pill">Calle Ocho / Carnaval Miami (Feb–Mar)</span>
+        <span class="pill">Ultra Music Festival (Mar)</span>
+        <span class="pill">Tortuga Music Festival (Apr, Ft. Laud)</span>
+        <span class="pill">South Florida Fair (Jan, WPB)</span>
+        <span class="pill">Miami-Dade Youth Fair (Mar)</span>
+        <span class="pill">Coconut Grove Arts Festival (Feb)</span>
+        <span class="pill">SunFest (Apr/May, WPB)</span>
+        <span class="pill">Winterfest Boat Parade (Dec, Ft. Laud)</span>
+        <span class="pill">Miami Carnival (Oct)</span>
+        <span class="pill">Homestead Championship Rodeo (Jan/Feb)</span>
+        <span class="pill">Miami Marathon (Jan, Life Time)</span>
+        <span class="pill">Art Basel week activations (Dec)</span>
+        <span class="pill">King Mango Strut (Dec 31)</span>
+        <span class="pill">Hollywood Beach Latin Fest / July 4th (Jul)</span>
+        <span class="pill">Las Olas Wine &amp; Food (Ft. Laud)</span>
+        <span class="pill">Doral community festivals</span>
+      </div>
+      <p class="foot">Exact 2026/27 dates verified before each outreach wave; each event = a named organizer, a named buyer, a booking window on the outreach calendar. <span style="color:var(--coral)">★ existing relationship</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= TAB 3 — THE LEAD ENGINE ============================= -->
+<section class="panel wrap" id="panel-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+  <div class="tab-kicker">03 · The Lead Engine — Channels</div>
+  <h2 class="tab-head">Three lanes, one funnel. <span class="accent">Everything reports to the same scoreboard.</span></h2>
+  <p class="tab-intro">No spray-and-pray. This market is a few hundred named buyers, not the general public — so the engine is built for precision: inbound capture for the people already searching, outbound pursuit for the buyers who should know Reflections, and relationships &amp; bids for the contracts that never hit the open market.</p>
+
+  <div class="lane">
+    <div class="lane-head">
+      <span class="lane-badge">Lane 1</span>
+      <h3>Inbound — be found <small>· runs from Phase 1</small></h3>
+    </div>
+    <div class="lane-body">
+      <div class="lane-item"><b class="lead">Website quote funnel:</b> every page funnels to Get a Quote; call tracking number + form analytics so every lead has a source.</div>
+      <div class="lane-item"><b class="lead">Google Business Profile:</b> rebuilt listing (photos, services, stages as products, weekly posts). <span class="stat">42%</span> of local searchers click the map-pack results <span class="src">(Backlinko 2024)</span> — that's where "stage rental near me" money lands.</div>
+      <div class="lane-item"><b class="lead">Review engine:</b> systematic requests to 50 years of past clients, then every completed 2026-27 event. <span class="stat">97%</span> of consumers read reviews before choosing a local business <span class="src">(BrightLocal 2026)</span>. Target: <strong>25+ Google reviews by Oct, 40+ by renewal</strong>.</div>
+      <div class="lane-item"><b class="lead">SEO (Phase 4 wave):</b> 7 stage spec pages (product SEO), market pages (Miami / Ft. Lauderdale / West Palm / Orlando), resources hub ("what size stage do I need"), Backstage blog kept as News.</div>
+      <div class="lane-item"><b class="lead">Google Ads (Phase 3):</b> Search-only on high-intent keywords ("mobile stage rental," "stage rental Miami / Florida," "event production company Miami," "concert stage rental") + remarketing. Benchmarks: business-services category averages <span class="stat">$5.58 CPC</span> / ~<span class="stat">5.1%</span> conversion / ~<span class="stat">$104</span> per lead <span class="src">(WordStream 2025)</span>; our niche terms est. $4–12 CPC. At $1,500–2,500/mo media we model <strong>8–16 inbound leads/mo</strong> once tuned. Media billed at cost — separate pass-through budget, AGM manages it inside the retainer. <em>(Verified: Google Local Services Ads has NO event/staging category — that shortcut doesn't exist; budget goes to standard Search.)</em></div>
+      <div class="lane-item"><b class="lead">Marketplace listings (cheap tests, Phase 2):</b> The Bash ($79–199/yr + 5% commission) and GigSalad (2.5–5% commission) — event-vendor marketplaces worth listing the fleet on. Thumbtack/Peerspace skipped: wrong category fit.</div>
+      <div class="lane-item"><b class="lead">Social engine:</b> 90 days already built (<strong>245 graphics, Jul 15–Oct 12</strong>); months 4–12 produced monthly on the same system — proof-of-work content: load-ins, timelapses, then-and-now.</div>
+    </div>
+  </div>
+
+  <div class="lane">
+    <div class="lane-head">
+      <span class="lane-badge">Lane 2</span>
+      <h3>Outbound — go get them <small>· runs from Phase 2</small></h3>
+    </div>
+    <div class="lane-body">
+      <div class="lane-item"><b class="lead">Past-client reactivation FIRST:</b> excavate 50 years of client records into the CRM (target <strong>300+ contacts</strong>). "The New Reflections" announcement: email + personal calls + printed piece to the best 100. Warmest list in Florida — they already trusted the company once.</div>
+      <div class="lane-item"><b class="lead">Named-account sequences:</b> 150–200 target accounts across Tier 1–2, built from the hit list + procurement contacts. Sequenced, personalized email — 5–6 touches over 2–4 weeks (follow-ups drive <span class="stat">42%</span> of all replies; most senders quit after one). Well-targeted small-list B2B earns <span class="stat">1–5%+</span> reply rates vs under 1% for generic sends <span class="src">(Belkins/Martal 2025-26)</span>. Why we don't "blast": Gmail/Yahoo sender rules now punish bulk volume, and this market is a few hundred named buyers anyway — precision beats volume on both deliverability and math.</div>
+      <div class="lane-item"><b class="lead">Call blocks:</b> 25–40 calls/week during Phase 2–3, scripts per vertical, calls follow email engagement (opens/clicks first). Industry blended benchmarks: ~<span class="stat">10%</span> connect per dial, ~<span class="stat">25%</span> per prospect with persistence, <span class="stat">58%</span> of connects become real conversations <span class="src">(Belkins 2025-26)</span>. A named, warm-market list with a 50-year reputation is built to beat blended averages decisively.</div>
+      <div class="lane-item"><b class="lead">Dimensional direct mail:</b> printed fleet lookbook (spec sheets + hero shots) to the top 100 buyers (parks &amp; rec directors, fair boards, festival EDs). Paper survives on a desk; a PDF doesn't. Dimensional mail pulls <span class="stat">6–12%</span> response at $5–25/piece vs a <span class="stat">4.4%</span> direct-mail average and ~<span class="stat">0.1%</span> for mass email <span class="src">(ANA/DMA 2025)</span> — 100 lookbooks ≈ $1.5–2.5K printed, 6–12 warm responses expected from exactly the buyers we want. Tracked via QR + dedicated landing URL.</div>
+    </div>
+  </div>
+
+  <div class="lane">
+    <div class="lane-head">
+      <span class="lane-badge">Lane 3</span>
+      <h3>Relationships &amp; bids — the contracts that never go public <small>· runs from Phase 2, compounds forever</small></h3>
+    </div>
+    <div class="lane-body">
+      <div class="lane-item"><b class="lead">Vendor registrations (Phase 1, immediately):</b> Miami-Dade Vendor Self-Service/BidSync · City of Hialeah OpenGov portal · City of Miami · DemandStar (Broward County, Ft. Lauderdale, Broward Schools) · BidNet Direct · Miami-Dade Parks "Registered Party Vendors" list · Miami-Dade &amp; Broward film offices. <strong>Weekly RFP monitoring across all portals from Oct 1.</strong></div>
+      <div class="lane-item"><b class="lead">Associations:</b> FFEA (statewide festivals/events, annual convention) · MPI South Florida (confirmed active, Ft. Lauderdale) · ILEA / ADMEI (the DMC rooms) · IFEA. Join in Phase 2, show up to 2 events per quarter with the new brand.</div>
+      <div class="lane-item"><b class="lead">Partner referral network:</b> tent companies, caterers, event planners, AV integrators, venues, DMCs — reciprocal referral program; Reflections becomes the staging answer in everyone else's pitch.</div>
+      <div class="lane-item"><b class="lead">Case-study capture:</b> every 2026-27 event gets shot for the portfolio (feeds social, SEO, and the next pitch).</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= TAB 4 — ROADMAP ============================= -->
+<section class="panel wrap" id="panel-4" role="tabpanel" aria-labelledby="tab-4" hidden>
+  <div class="tab-kicker">04 · The Roadmap — 12 Months, Quarter by Quarter</div>
+  <h2 class="tab-head">What happens, when, <span class="accent">and what it's building toward.</span></h2>
+
+  <div class="section" style="margin-top:34px;">
+    <div class="timing">
+      <div class="flag">Market timing</div>
+      <p>Florida's event season runs fall → spring and peaks <strong>January–March</strong>; August is the quietest event month — which makes it <strong>the perfect launch window</strong>. Buyers are at their desks planning the Oct–May calendar at exactly the moment our reactivation and outbound waves land.</p>
+    </div>
+  </div>
+
+  <div class="beam"></div>
+  <div class="section">
+    <div class="card mile-block">
+      <h4>Next 90 days</h4>
+      <div class="when">Jul 15 – Oct 12 · Phases 1–2 · matches the social calendar window</div>
+      <ul class="dash">
+        <li>Site live + quote funnel wired (forms, call tracking, GA4, CRM pipeline)</li>
+        <li>GBP rebuilt, NAP cleanup across directories</li>
+        <li>Social engine posting daily (built), review engine on — target <strong>25+ Google reviews</strong></li>
+        <li>Vendor registrations filed across all portals (Miami-Dade, Hialeah, Broward, Ft. Laud, film offices)</li>
+        <li>Past-client database built (<strong>300+ contacts</strong>) + "The New Reflections" reactivation campaign out</li>
+        <li>Face time with municipal special-events managers before FY27 calendars lock</li>
+        <li>Named hit list built (<strong>150–200 accounts</strong>); first outbound wave (email sequences + call blocks) live by Sep</li>
+        <li class="exit"><strong>90-day exit criteria:</strong> 8–12 qualified quote conversations · 2–4 incremental bookings · RFP monitoring live for Oct 1 fiscal year</li>
+      </ul>
+    </div>
+    <div class="grid-2" style="margin-top:18px;">
+      <div class="card mile-block">
+        <h4>By 6 months</h4>
+        <div class="when">Mid-Jan '27 · Phase 3 complete</div>
+        <ul class="dash">
+          <li>Outbound at full cadence (weekly call blocks, monthly mail drops, association events attended)</li>
+          <li>Google Ads live 60+ days, tuned on real conversion data; NYE/holiday season captured</li>
+          <li>First FY27 municipal RFP responses submitted; <strong>1–2 municipal/fair contracts</strong> landed or in final pipeline</li>
+          <li>Big Orange NYE + holiday season shot into case studies</li>
+          <li class="exit"><strong>Blended target:</strong> 15–25 leads/mo · 2–4 incremental bookings/mo</li>
+        </ul>
+      </div>
+      <div class="card mile-block">
+        <h4>By 12 months</h4>
+        <div class="when">Jul '27 · Phase 4 complete</div>
+        <ul class="dash">
+          <li>SEO compounding: stage spec pages + market pages ranking; <strong>40+ reviews</strong>; GBP top-3 for core "stage rental" searches in the metro</li>
+          <li>Referral network producing; live bid pipeline as a permanent rhythm</li>
+          <li>Season case studies published; anniversary-year story ("50 years on stage") told all year</li>
+          <li class="exit"><strong>Target:</strong> 25–40 leads/mo blended · 20–30 incremental bookings over the year · 2–3 anchor annual contracts in the book</li>
+          <li>Renewal meeting runs off a 12-month scoreboard, not promises</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="beam"></div>
+  <div class="section">
+    <h3 class="sec">The monthly rhythm <span class="tag">— what every Mission month includes, M1–M12</span></h3>
+    <div class="rhythm">
+      <span>Social content produced + scheduled</span>
+      <span>GBP posts + review management</span>
+      <span>Outbound touches (sequences, call blocks, follow-ups)</span>
+      <span>RFP portal monitoring</span>
+      <span>Ads management (Phase 3+)</span>
+      <span>Site updates &amp; landing pages</span>
+      <span>Monthly scoreboard report + strategy call</span>
+    </div>
+  </div>
+
+  <div class="beam"></div>
+  <div class="section">
+    <h3 class="sec">Month by month</h3>
+    <div class="months">
+      <div class="mcell"><div class="mh"><span class="mn">M1</span><span class="mo">Aug</span></div>Launch + tracking + registrations</div>
+      <div class="mcell"><div class="mh"><span class="mn">M2</span><span class="mo">Sep</span></div>Reactivation wave + budget-season face time</div>
+      <div class="mcell"><div class="mh"><span class="mn">M3</span><span class="mo">Oct</span></div>FY27 RFP season opens, hunt cadence full</div>
+      <div class="mcell"><div class="mh"><span class="mn">M4</span><span class="mo">Nov</span></div>Ads live, holiday push builds</div>
+      <div class="mcell"><div class="mh"><span class="mn">M5</span><span class="mo">Dec</span></div>NYE season + Art Basel week + case-study capture</div>
+      <div class="mcell"><div class="mh"><span class="mn">M6</span><span class="mo">Jan</span></div>Fair season, 6-month scoreboard, ads tuned</div>
+      <div class="mcell"><div class="mh"><span class="mn">M7</span><span class="mo">Feb</span></div>Calle Ocho/Grove festivals, SEO wave ships</div>
+      <div class="mcell"><div class="mh"><span class="mn">M8</span><span class="mo">Mar</span></div>Ultra/Youth Fair season, market pages live</div>
+      <div class="mcell"><div class="mh"><span class="mn">M9</span><span class="mo">Apr</span></div>Tortuga/SunFest, referral program formalized</div>
+      <div class="mcell"><div class="mh"><span class="mn">M10</span><span class="mo">May</span></div>Grad season, geo-expansion test (Orlando/Tampa)</div>
+      <div class="mcell"><div class="mh"><span class="mn">M11</span><span class="mo">Jun</span></div>Summer municipal season (July 4th cycle), pipeline review</div>
+      <div class="mcell"><div class="mh"><span class="mn">M12</span><span class="mo">Jul</span></div>Renewal scoreboard + year-2 plan</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= TAB 5 — SCOREBOARD ============================= -->
+<section class="panel wrap" id="panel-5" role="tabpanel" aria-labelledby="tab-5" hidden>
+  <div class="tab-kicker">05 · The Scoreboard — Numbers, KPIs, ROI</div>
+  <h2 class="tab-head">The retainer pays for itself at one incremental booking a month. <span class="accent">Here's the math.</span></h2>
+
+  <div class="beam"></div>
+  <div class="section">
+    <h3 class="sec">The break-even math</h3>
+    <div class="tiles">
+      <div class="tile">
+        <div class="t-label">Year-1 program</div>
+        <div class="t-value">$67,500</div>
+        <div class="t-sub">$7,500 launch + $60,000 Mission · plus media at cost (~$18K modeled over ~9 months, pass-through)</div>
+      </div>
+      <div class="tile">
+        <div class="t-label">Conservative blended booking value</div>
+        <div class="t-value">$7,500</div>
+        <div class="t-sub">Weighted toward small/mid, equipment-focused</div>
+      </div>
+      <div class="tile coral">
+        <div class="t-label">Break-even</div>
+        <div class="t-value">≈ 9 <span class="unit">bookings/yr</span></div>
+        <div class="t-sub">On the program alone · ≈ 11–12 including media</div>
+      </div>
+    </div>
+    <div class="hero-strip">
+      <div class="big">About <em>one incremental booking a month</em> pays for everything.</div>
+    </div>
+    <div class="tiles">
+      <div class="tile">
+        <div class="t-label">What the targets deliver</div>
+        <div class="t-value">$150K–$225K<span class="unit">+</span></div>
+        <div class="t-sub">20–30 incremental bookings ≈ attributed revenue at conservative averages</div>
+      </div>
+      <div class="tile coral">
+        <div class="t-label">Return</div>
+        <div class="t-value">2.5–3.5×</div>
+        <div class="t-sub">And a single annual municipal or fair contract can cover the year on its own</div>
+      </div>
+      <div class="tile">
+        <div class="t-label">Inventory frame</div>
+        <div class="t-value">10–15% <span class="unit">lift</span></div>
+        <div class="t-sub">20–30 bookings on 200+ available stage-weekends. We're not asking the market for something the fleet can't supply.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="beam"></div>
+  <div class="section">
+    <h3 class="sec">Market day rates <span class="tag">— market estimates, not quotes</span></h3>
+    <p class="sec-note">This industry quotes by RFQ; Reflections' real rates replace these in month one.</p>
+    <div class="grid-2" style="grid-template-columns: 1.15fr .85fr; align-items:start;">
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Stage class</th><th>Market range (equipment only)</th></tr></thead>
+          <tbody>
+            <tr><td>Small (~20×16)</td><td class="num">$500 – $1,500 / day</td></tr>
+            <tr><td>Mid (24×20 – 32×24 hydraulic)</td><td class="num">$3,500 – $15,000 / event</td></tr>
+            <tr><td>Large festival mainstage (40×40 – 50×40)</td><td class="num">$10,000 – $50,000+ / event</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <p class="foot" style="margin-top:2px;">Full production bundles (JBL audio, lighting, LED wall) price above equipment-only — most Reflections quotes are bundles.</p>
+        <p class="quoteline">"Targets are models built on market benchmarks, not guarantees. Reflections' actual rates replace market averages in month one, and the scoreboard reports real numbers monthly."</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="beam"></div>
+  <div class="section">
+    <h3 class="sec">Funnel targets by phase</h3>
+    <div class="grid-2" style="grid-template-columns: 1.2fr .8fr; align-items:start;">
+      <div class="tbl-wrap">
+        <table class="tbl tight">
+          <thead><tr><th>Window</th><th>Leads/mo (blended)</th><th>Quote conversations</th><th>Incremental bookings</th></tr></thead>
+          <tbody>
+            <tr><td>90 days</td><td class="num">8–15</td><td class="num">8–12 (cumulative)</td><td class="num">2–4 (cumulative)</td></tr>
+            <tr><td>6 months</td><td class="num">15–25</td><td class="num">6–10/mo</td><td class="num">2–4/mo</td></tr>
+            <tr><td>12 months</td><td class="num">25–40</td><td class="num">10–15/mo</td><td class="num">20–30 (year total)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card mix" role="img" aria-label="Lead-mix shift: quarters one and two are outbound-heavy; quarters three and four are inbound-heavy as SEO and ads compound. Illustrative mix, not a forecast.">
+        <div class="t-label" style="font-size:10.5px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-mut); margin-bottom:4px;">Where leads come from — the mix shifts</div>
+        <div class="mix-legend">
+          <span class="k-out"><i></i>Outbound</span>
+          <span class="k-in"><i></i>Inbound</span>
+        </div>
+        <div class="mix-row">
+          <div class="rl">Q1–Q2 <small>Aug – Jan · outbound-heavy</small></div>
+          <div class="mix-bar"><div class="mix-seg out" style="width:68%;"><span class="seg-lbl">Outbound</span></div><div class="mix-seg in" style="width:32%;"></div></div>
+        </div>
+        <div class="mix-row">
+          <div class="rl">Q3–Q4 <small>Feb – Jul · inbound-heavy</small></div>
+          <div class="mix-bar"><div class="mix-seg out" style="width:35%;"></div><div class="mix-seg in" style="width:65%;"><span class="seg-lbl">Inbound</span></div></div>
+        </div>
+        <p class="mix-cap">Illustrative mix, not a forecast — inbound compounds as SEO/ads mature.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="beam"></div>
+  <div class="section">
+    <h3 class="sec">Reported every month <span class="tag">— the scoreboard</span></h3>
+    <div class="kpis">
+      <span>Calls (tracked number)</span>
+      <span>Quote form fills</span>
+      <span>GBP actions (calls/directions/site clicks)</span>
+      <span>Leads by source</span>
+      <span>Outbound touches made</span>
+      <span>Quotes sent + pipeline value</span>
+      <span>Bookings + revenue attributed</span>
+      <span>Review count</span>
+      <span>Ads cost-per-lead once live <b>(target ≤ $125</b>; business-services average is ~$104, WordStream 2025)</span>
+    </div>
+  </div>
+
+  <div class="beam"></div>
+  <div class="section">
+    <h3 class="sec">Budget frame</h3>
+    <div class="grid-3 budget">
+      <div class="card">
+        <div class="b-title">Mission retainer: <span class="amt">$5,000/mo</span></div>
+        <p>Strategy, content, outbound execution, ads management, reporting. (Pricing detail lives in the pricing one-pager — this tab references, doesn't re-pitch.)</p>
+      </div>
+      <div class="card">
+        <div class="b-title">Paid media <span style="color:var(--teal)">(Phase 3+)</span></div>
+        <p>Separate pass-through budget, billed at cost, recommended $1,500–2,500/mo once ads go live (~Month 4). No markup; AGM manages it inside the retainer.</p>
+      </div>
+      <div class="card">
+        <div class="b-title">One-off boosts <span style="color:var(--teal)">(as wanted, from the à la carte menu)</span></div>
+        <p>Event-day photo/video capture, anniversary film, reels — each doubles as sales ammunition for this plan.</p>
+      </div>
+    </div>
+    <div class="smallprint">
+      <b>Assumption ledger:</b> close rate modeled at 20–30% on qualified quotes (50-yr credibility + direct buyer access); lead mix shifts from outbound-heavy (Q1–2) to inbound-heavy (Q3–4) as SEO/ads compound; municipal cycles mean some Q1 seeds close in Q3–Q4.
+    </div>
+  </div>
+</section>
+
+<!-- ============================= TAB 6 — INTERNAL ============================= -->
+<section class="panel wrap" id="panel-internal" role="tabpanel" aria-labelledby="tab-6" hidden>
+  <div class="internal-wrap">
+    <div class="internal-banner">🔒 Internal — Close Before Sharing</div>
+    <div class="tab-kicker" style="color:var(--coral);">Internal Appendix · Jonathan only — never screen-share</div>
+    <h2 class="tab-head" style="font-size:clamp(26px,2.8vw,36px);">Pitch-room notes, margins, and fallbacks.</h2>
+
+    <div class="beam"></div>
+    <div class="section">
+      <h3 class="sec">Pitch guidance</h3>
+      <ul class="int">
+        <li><strong>Slot this dashboard in the screen order right before the pricing one-pager:</strong> engine → then the number. The roadmap makes $5K/mo feel like a machine, not a fee.</li>
+        <li><strong>Lead Tab 1 with the perishable-inventory line;</strong> land the Oct 1 fiscal-year point verbatim: <span class="say">"Your municipal buyers finalize FY27 event calendars in the next 60 days. We either get registered and in front of them now, or we watch this cycle from the yard."</span></li>
+        <li><strong>If they ask "why 12 months":</strong> the buying cycle IS the answer (fairs book post-fair, festivals 9–12 mo out, munis annual). Never defend 12 months on effort — defend it on their buyers' calendar.</li>
+        <li><strong>"Can we do 6 months?"</strong> → per pitch-day playbook fallbacks only; do not invent new discounts in the room. 6 months ends the engagement in January — right before Calle Ocho, Ultra, fair season, and the entire spring RFP harvest. Say exactly that.</li>
+        <li><strong>The 245 finished graphics go live on Mission signup</strong> (close sweetener, already in the pricing logic). This dashboard's 90-day window intentionally matches the artwork calendar (Jul 15–Oct 12) — point at it: <span class="say">"the first 90 days of this plan are already built."</span></li>
+      </ul>
+    </div>
+
+    <div class="beam"></div>
+    <div class="section">
+      <h3 class="sec">Effort allocation <span class="tag">— how the $5K/mo is actually spent, rough</span></h3>
+      <div class="card">
+        <div class="effort-row"><div class="el">Content / social</div><div class="effort-track"><div class="effort-fill" style="width:30%;" data-v="~30%"></div></div></div>
+        <div class="effort-row"><div class="el">Outbound execution (lists, sequences, calls, mail)</div><div class="effort-track"><div class="effort-fill" style="width:30%;" data-v="~30%"></div></div></div>
+        <div class="effort-row"><div class="el">Ads + landing pages (Phase 3+)</div><div class="effort-track"><div class="effort-fill" style="width:15%;" data-v="~15%"></div></div></div>
+        <div class="effort-row"><div class="el">GBP / reviews / RFP monitoring</div><div class="effort-track"><div class="effort-fill" style="width:10%;" data-v="~10%"></div></div></div>
+        <div class="effort-row" style="margin-bottom:0;"><div class="el">Reporting + strategy</div><div class="effort-track"><div class="effort-fill" style="width:15%;" data-v="~15%"></div></div></div>
+        <p class="check-note">Don't show percentages to client; if asked, describe activities not hours.</p>
+      </div>
+    </div>
+
+    <div class="beam"></div>
+    <div class="section">
+      <h3 class="sec">Margin notes</h3>
+      <ul class="int">
+        <li><strong>Media is pass-through</strong> (protects scope).</li>
+        <li><strong>Print/mail production billed at cost+15%</strong> like merch.</li>
+        <li><strong>À la carte upsell moments are built into the plan:</strong> event capture in Phase 2–4, anniversary film in M7–M12, reels for ads creative in Phase 3.</li>
+      </ul>
+    </div>
+
+    <div class="beam"></div>
+    <div class="section">
+      <h3 class="sec">What we need from the client <span class="tag">— get commitments in the room</span></h3>
+      <ul class="checklist" id="client-checklist">
+        <li><span class="box"></span>Access to past client records/books (the reactivation goldmine)</li>
+        <li><span class="box"></span>A blessed intro list (their top 20 relationships)</li>
+        <li><span class="box"></span>Review-request blessing + who signs it</li>
+        <li><span class="box"></span>GBP ownership/access</li>
+        <li><span class="box"></span>Ad account billing on their card (pass-through)</li>
+        <li><span class="box"></span>A crew contact for event-day capture</li>
+      </ul>
+      <p class="check-note">Tap to tick off in the room — resets on close, nothing is saved.</p>
+    </div>
+
+    <div class="beam"></div>
+    <div class="section">
+      <h3 class="sec">Risks &amp; honest caveats <span class="tag">— know before promising</span></h3>
+      <ul class="int">
+        <li>Ads CPL unknown until ~60 days of data.</li>
+        <li>Municipal RFP awards are slow (win in FY27, revenue lands mid-2027).</li>
+        <li>Ultra/Tortuga-scale promoters have incumbent vendors — treat as year-2 wins, farm the relationship in year 1.</li>
+        <li>Hit-list dates need verification each wave.</li>
+        <li>Targets are models — the scoreboard is the contract.</li>
+      </ul>
+    </div>
+
+    <div class="beam"></div>
+    <div class="section">
+      <h3 class="sec">Channel reality check <span class="tag">— set your own expectations</span></h3>
+      <ul class="int">
+        <li>Blended cold-call worst case is <strong>~370 dials per meeting</strong> (Belkins) — the named warm list should crush that, but budget call time accordingly.</li>
+        <li>Cold-email blended averages are <strong>under 1% reply</strong> (blasts) vs <strong>1–5%+ for tight lists</strong> — if the client asks for "an email blast," the answer is no, and the deliverability + list-size logic on Tab 3 is the script.</li>
+        <li>Day-rate table is <strong>market estimates from rental pricing guides</strong> (industry is RFQ-only) — swap in Reflections' real rates in month one before anyone quotes the ROI math back to you.</li>
+        <li>Benchmarks are cited client-facing by <strong>source name only</strong> (WordStream, Belkins, ANA/DMA, BrightLocal); full source URLs live in the project doc — don't screen-share that.</li>
+      </ul>
+    </div>
+
+    <div class="beam"></div>
+    <div class="section">
+      <h3 class="sec">If numbers disappoint at 90 days <span class="tag">— pre-agreed pivots, don't improvise</span></h3>
+      <ul class="int">
+        <li>Shift budget from mail → calls (or reverse) based on which converts.</li>
+        <li>Pull ads forward if inbound underperforms.</li>
+        <li>Add a second reactivation wave (different angle: "book your 2027 date").</li>
+        <li>Tighten to Tier 1 verticals only.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <div class="beam-c"></div>
+  <p><b>Reflections Productions × Avant Garde Media</b> · The Mission · Targets are models, not guarantees — the monthly scoreboard reports actuals.</p>
+</footer>
+
+<script>
+(function(){
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  var panels = tabs.map(function(t){ return document.getElementById(t.getAttribute('aria-controls')); });
+
+  function activate(idx, focus){
+    tabs.forEach(function(t, i){
+      var on = i === idx;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      if (panels[i]) panels[i].hidden = !on;
+    });
+    if (focus) tabs[idx].focus();
+    window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+  }
+
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ activate(i, false); });
+    t.addEventListener('keydown', function(e){
+      var n = null;
+      if (e.key === 'ArrowRight') n = (i + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') n = 0;
+      else if (e.key === 'End') n = tabs.length - 1;
+      if (n !== null){ e.preventDefault(); activate(n, true); }
+    });
+  });
+
+  // Internal checklist — in-memory only, nothing persisted.
+  var list = document.getElementById('client-checklist');
+  if (list){
+    list.addEventListener('click', function(e){
+      var li = e.target.closest('li');
+      if (li) li.classList.toggle('done');
+    });
+  }
+})();
+</script>
+</body>
+</html>
