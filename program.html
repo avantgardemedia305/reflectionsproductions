@@ -390,12 +390,12 @@ canvas.sig{background:#FDFBF7;border-radius:8px;width:100%;max-width:460px;displ
 <div class="printhide" style="margin-top:10px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">
 <span id="notifystatus" style="font-size:12.5px;color:var(--mut)"></span>
 </div>
-<p class="fine printhide" style="margin-top:10px">Saving opens your print dialog — choose “Save as PDF.” Avant Garde Launchpad is notified automatically the moment you sign. For everyone's records, please also email the saved PDF: <a href="mailto:jonathan@avantgardelaunchpad.com?subject=Signed%20-%20Reflections%20x%20Avant%20Garde%20Launchpad%20Agreement&body=Signed%20copy%20attached." style="color:var(--tealb);font-weight:700">email the signed copy →</a></p>
+<p class="fine printhide" style="margin-top:10px">Saving opens your print dialog — choose “Save as PDF.” Avant Garde Launchpad is notified automatically the moment you sign. For everyone's records, please also email the saved PDF: <a href="mailto:takeoff@avantgardelaunchpad.com?subject=Signed%20-%20Reflections%20x%20Avant%20Garde%20Launchpad%20Agreement&body=Signed%20copy%20attached." style="color:var(--tealb);font-weight:700">email the signed copy →</a></p>
 </div>
 </div>
 
 <div class="foot">
-<div>Prepared for <b>Reflections Productions Inc</b> · July 2026<br>Jonathan Arroyo · Avant Garde Launchpad · jonathan@avantgardelaunchpad.com<br><span style="color:var(--sand)">Ready to lock it in? Sign on the <b>Agreement</b> tab and save your PDF — or reply <b>“approved”</b> and we'll countersign the same day. Concert #1 is already on the calendar.</span></div>
+<div>Prepared for <b>Reflections Productions Inc</b> · July 2026<br>Jonathan Arroyo · Avant Garde Launchpad · takeoff@avantgardelaunchpad.com<br><span style="color:var(--sand)">Ready to lock it in? Sign on the <b>Agreement</b> tab and save your PDF — or reply <b>“approved”</b> and we'll countersign the same day. Concert #1 is already on the calendar.</span></div>
 <div style="text-align:right"><span class="est">50 Years · Est. 1975</span><br>Pricing honored through July 31, 2026</div>
 </div>
 </div>
@@ -460,7 +460,7 @@ function notifyAGL(){
     agreement:'Reflections Productions x Avant Garde Launchpad — 12-Month Mission + Barter Structure, year one $67,500'
   };
   if(sigDrawn.csig){try{payload.client_signature_image=document.getElementById('csig').toDataURL('image/png');}catch(e){}}
-  fetch('https://formsubmit.co/ajax/jonathan@avantgardelaunchpad.com',{
+  fetch('https://formsubmit.co/ajax/takeoff@avantgardelaunchpad.com',{
     method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
     body:JSON.stringify(payload)
   }).then(function(r){if(!r.ok)throw 0;s.textContent='✓ Avant Garde Launchpad has been notified of your signature.';})
