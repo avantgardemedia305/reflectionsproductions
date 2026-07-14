@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reflections Productions × Avant Garde Launchpad — Program & Payment Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0C1414;--pan:#111c1c;--teal:#3FA796;--tealb:#5fd0bd;--sand:#F4EFE6;--coral:#FF6B4A;--mut:#9fb4b0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:var(--sand);font-family:'Archivo',system-ui,sans-serif;line-height:1.5}
+.wrap{max-width:820px;margin:0 auto;padding:40px 22px 70px}
+.brandrow{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.mk{width:54px;height:54px}
+.brandrow .nm b{font-weight:900;font-size:19px;display:block;letter-spacing:.5px}
+.brandrow .nm span{color:var(--teal);letter-spacing:6px;font-size:10.5px;font-weight:700}
+h1{font-family:'Anton';font-weight:400;text-transform:uppercase;font-size:clamp(34px,6.5vw,58px);line-height:.94;margin:18px 0 8px}
+h1 .r{color:var(--teal)}
+.lead{color:#cfe0dc;font-size:17px;max-width:62ch}
+.waterline{height:4px;margin:22px 0;border-radius:3px;background:linear-gradient(90deg,transparent,var(--tealb) 12%,var(--teal) 50%,var(--tealb) 88%,transparent);box-shadow:0 0 22px 1px rgba(63,167,150,.5)}
+h2{font-family:'Anton';font-weight:400;text-transform:uppercase;font-size:22px;color:var(--tealb);margin:30px 0 12px}
+.card{background:var(--pan);border:1px solid rgba(63,167,150,.18);border-radius:14px;padding:20px 22px;margin:14px 0}
+.line{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:11px 2px;border-bottom:1px solid rgba(63,167,150,.14)}
+.line:last-child{border-bottom:0}
+.line .d{color:#dfece8;font-size:15.5px}.line .d b{color:var(--sand)}
+.line .d small{display:block;color:var(--mut);font-size:13px;margin-top:2px}
+.line .p{font-family:'Anton';font-size:23px;color:var(--tealb);white-space:nowrap}
+.total .p{color:var(--coral);font-size:30px}
+.rule{background:linear-gradient(120deg,rgba(255,107,74,.12),rgba(19,94,84,.18));border:1px solid rgba(255,107,74,.4);border-radius:14px;padding:20px 22px;margin:16px 0}
+.rule .klabel{color:var(--coral)}
+.rule p{font-size:16px;color:#f2ece2;margin-top:6px}
+.rule .big{font-family:'Anton';font-size:40px;color:var(--sand);margin-top:8px}
+.rule .big s{color:var(--mut);font-size:26px;margin-right:12px}
+.klabel{color:var(--mut);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;font-family:'Archivo Narrow'}
+ul{margin:8px 0 4px 18px}li{margin:6px 0;color:#dfece8;font-size:15px}li::marker{color:var(--teal)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.foot{margin-top:34px;color:var(--mut);font-size:13px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.est{font-family:'Archivo Narrow';font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:12px;color:var(--teal)}
+
+/* — plans button — */
+.btn{display:inline-block;background:var(--coral);color:var(--ink);font-weight:900;font-size:15px;letter-spacing:.4px;padding:13px 24px;border-radius:10px;text-decoration:none;box-shadow:0 6px 22px rgba(255,107,74,.28)}
+.btn:hover{filter:brightness(1.07)}
+
+/* — your plan chip — */
+.chip{display:inline-block;background:var(--coral);color:var(--ink);font-size:10.5px;font-weight:900;letter-spacing:2px;padding:3px 9px;border-radius:20px;vertical-align:3px;margin-left:9px;text-transform:uppercase}
+
+/* — 3 steps — */
+.steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:14px 0}
+@media(max-width:700px){.steps{grid-template-columns:1fr}}
+.step{background:var(--pan);border:1px solid rgba(63,167,150,.18);border-radius:14px;padding:18px 18px 16px;position:relative}
+.step .n{font-family:'Anton';font-size:15px;color:var(--coral);letter-spacing:1px;margin-bottom:6px}
+.step .t{font-family:'Anton';font-weight:400;text-transform:uppercase;font-size:19px;line-height:1.08;margin-bottom:8px}
+.step p{color:#cfe0dc;font-size:13.5px;line-height:1.5}
+.step p b{color:var(--sand)}
+
+/* — equation strip — */
+.eq{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;background:linear-gradient(120deg,rgba(63,167,150,.14),rgba(19,94,84,.10));border:1px solid rgba(63,167,150,.35);border-radius:14px;padding:16px 18px;margin:14px 0;text-align:center}
+.eq .v{font-family:'Anton';font-size:30px;color:var(--sand)}
+.eq .v small{display:block;font-family:'Archivo Narrow';font-size:11.5px;letter-spacing:2px;color:var(--mut);text-transform:uppercase;margin-top:2px}
+.eq .op{font-family:'Anton';font-size:26px;color:var(--teal)}
+.eq .v.hero{color:var(--coral)}
+
+/* — payoff bar — */
+.bar{margin:18px 2px 6px}
+.bartrack{display:flex;height:30px;border-radius:8px;overflow:hidden;border:1px solid rgba(63,167,150,.35)}
+.bartrack .seg{display:flex;align-items:center;justify-content:center;font-family:'Archivo Narrow';font-weight:700;font-size:11.5px;letter-spacing:1.5px;color:var(--ink)}
+.s1{width:36.8%;background:#7ed8c7}.s2{width:36.8%;background:#3FA796}.s3{width:26.4%;background:var(--coral)}
+.barlabels{display:flex;justify-content:space-between;color:var(--mut);font-size:11.5px;letter-spacing:1px;text-transform:uppercase;font-family:'Archivo Narrow';font-weight:700;margin-top:5px}
+
+/* — schedule table — */
+table{width:100%;border-collapse:collapse;margin:6px 0 2px;font-size:14.5px}
+th{font-family:'Archivo Narrow';font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:11px;color:var(--mut);text-align:left;padding:8px 10px;border-bottom:1px solid rgba(63,167,150,.35)}
+td{padding:10px;border-bottom:1px solid rgba(63,167,150,.12);color:#dfece8;vertical-align:middle}
+td.num{font-family:'Anton';font-size:17px;color:var(--tealb);white-space:nowrap}
+td .sm{display:block;color:var(--mut);font-size:12px}
+tr.paidrow td{background:linear-gradient(120deg,rgba(255,107,74,.16),rgba(255,107,74,.05));color:var(--sand)}
+tr.paidrow td.num{color:var(--coral)}
+.pill{display:inline-block;background:var(--teal);color:var(--ink);font-weight:800;font-size:11px;letter-spacing:1.5px;padding:2px 9px;border-radius:20px;text-transform:uppercase}
+.pill.hot{background:var(--coral)}
+.fine{color:var(--mut);font-size:12.5px;margin-top:10px;line-height:1.55}
+
+/* — tabs — */
+.tabbar{display:flex;gap:2px;margin:26px 0 6px;border-bottom:1px solid rgba(63,167,150,.25);flex-wrap:wrap}
+.tabbtn{background:none;border:none;cursor:pointer;font-family:'Anton',Impact,'Arial Narrow',sans-serif;font-size:13.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--mut);padding:10px 11px 12px;border-bottom:3px solid transparent}
+/* — mission job cards — */
+.jobcard{background:var(--pan);border:1px solid rgba(63,167,150,.18);border-radius:14px;padding:16px 18px;margin:0}
+.jobcard h3{font-family:'Anton';font-weight:400;font-size:18px;letter-spacing:.5px;text-transform:uppercase;color:var(--sand);margin:4px 0 7px}
+.jobcard .j{color:#dfece8;font-size:13.5px;font-weight:600;margin:0 0 7px;line-height:1.45}
+.jobcard ul{margin:0 0 0 16px}
+.jobcard li{font-size:13px;margin:4px 0;color:#cfe0dc}
+.oldp{color:var(--mut);font-size:13.5px;font-family:'Archivo';font-weight:600;margin-right:7px}
+.tabbtn.active{color:var(--sand);border-bottom-color:var(--coral)}
+.tabbtn:hover{color:var(--tealb)}
+.tabpanel{display:none}
+.tabpanel.active{display:block}
+
+/* — signatures — */
+.sigblock{background:var(--pan);border:1px solid rgba(63,167,150,.18);border-radius:14px;padding:18px}
+.sigrow{display:flex;align-items:center;gap:10px;margin:8px 0}
+.sigrow label{flex:0 0 130px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut);font-family:'Archivo Narrow';font-weight:700}
+.siginput{flex:1;background:#0d1717;border:1px solid rgba(63,167,150,.3);border-radius:8px;color:var(--sand);font-family:'Archivo';font-size:15px;padding:9px 12px;min-width:0}
+.siginput:focus{outline:2px solid var(--teal)}
+.sigscript{font-family:'Brush Script MT','Segoe Script','Snell Roundhand',cursive;font-size:23px}
+canvas.sig{background:#FDFBF7;border-radius:8px;width:100%;max-width:460px;display:block;touch-action:none;cursor:crosshair}
+.clearbtn{background:none;border:1px solid rgba(63,167,150,.4);color:var(--tealb);border-radius:8px;padding:5px 14px;font-size:12px;cursor:pointer;margin-top:8px}
+.agreecard label{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#dfece8;line-height:1.5}
+#agreewarn{color:var(--coral);font-size:13px;font-weight:700;display:none}
+
+@media print{
+  html,body{background:#fff!important;padding:0}
+  .wrap{max-width:100%;padding:0 .2in}
+  .wrap *{color:#111!important}
+  h1,h2,.big,.line .p,.step .t,.jobcard h3,.eq .v,.num{color:#0C1414!important}
+  h1 .r,.klabel{color:#0f6c5e!important}
+  .card,.rule,.step,.eq,.jobcard,.sigblock,.mathstrip{background:#fff!important;border:1px solid #bbb!important;box-shadow:none!important}
+  .tabbar,.btn,.clearbtn,.printhide{display:none!important}
+  .waterline{background:#0C1414!important;box-shadow:none!important;height:3px}
+  .chip,.pill,.paid{background:#0C1414!important;color:#fff!important}
+  th{color:#333!important}
+  tr.paidrow td{background:#f2f2f2!important}
+  .bartrack .seg{color:#fff!important}
+  .siginput{background:#fff!important;border:none!important;border-bottom:1px solid #999!important;border-radius:0!important}
+  canvas.sig{border:1px solid #999!important}
+  .foot{background:#fff!important;border-top:1px solid #bbb}
+  .card,.rule,.step,.eq,.sigblock{break-inside:avoid}
+  .pb{break-before:page}
+}
+</style></head><body><div class="wrap">
+
+<div class="brandrow"><svg class="mk" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240"><defs><clipPath id="c"><circle cx="120" cy="118" r="84"/></clipPath></defs><g clip-path="url(#c)"><rect x="36" y="34" width="168" height="96" fill="#FF6B4A"/><rect x="36" y="138" width="168" height="11" fill="#3FA796"/><rect x="36" y="157" width="168" height="9" fill="#3FA796" opacity="0.68"/><rect x="36" y="174" width="168" height="8" fill="#3FA796" opacity="0.44"/><rect x="36" y="190" width="168" height="6" fill="#3FA796" opacity="0.24"/><g fill="#0C1414"><path d="M112 132 C112 106 114 88 122 68 L132 72 C124 90 122 108 123 132 Z"/><path d="M127 70 C107 58 86 58 70 70 C88 66 108 68 127 78 Z"/><path d="M127 70 C115 51 97 43 78 45 C96 50 112 58 124 74 Z"/><path d="M127 70 C128 50 137 36 153 28 C141 42 134 56 133 72 Z"/><path d="M127 70 C145 56 165 54 181 62 C163 62 145 68 131 78 Z"/><path d="M127 70 C143 68 159 76 169 90 C155 80 141 78 129 82 Z"/><circle cx="127" cy="74" r="5"/></g></g></svg>
+<div class="nm"><b>REFLECTIONS PRODUCTIONS</b><span>× AVANT GARDE LAUNCHPAD</span></div></div>
+
+<div class="tabbar">
+<button class="tabbtn active" data-tab="tabintro" onclick="showTab('tabintro')">01 · Thank You</button>
+<button class="tabbtn" data-tab="tabmission" onclick="showTab('tabmission')">02 · The Mission</button>
+<button class="tabbtn" data-tab="tabprogram" onclick="showTab('tabprogram')">03 · Program &amp; Investment</button>
+<button class="tabbtn" data-tab="tabpay" onclick="showTab('tabpay')">04 · Payment Plan</button>
+<button class="tabbtn" data-tab="tabalacarte" onclick="showTab('tabalacarte')">05 · À La Carte</button>
+<button class="tabbtn" data-tab="tabnext" onclick="showTab('tabnext')">06 · Next Steps</button>
+<button class="tabbtn" data-tab="tabagree" onclick="showTab('tabagree')">07 · The Agreement</button>
+</div>
+
+<div class="tabpanel active" id="tabintro">
+<h1>Thank <span class="r">you.</span></h1>
+<p class="lead">Thank you for your time, for walking us through a small glimpse of the history of how Reflections came to be over the last 50 years. After reviewing your brand, your website, and your market — and sitting across the table from you — we're confident in something we don't say lightly: <b style="color:var(--sand)">this business is sitting on far more demand than it's capturing, and we can help you grow into it.</b></p>
+<p class="lead" style="margin-top:12px">We hope the work you've already seen — the identity concepts, the new website, the 3D stage viewer, the artwork engine — shows you how passionate and committed we are to this business and to this relationship. We didn't want to tell you what we'd do. We wanted to show you.</p>
+<div class="waterline"></div>
+
+<h2>Our professional advice</h2>
+<div class="card">
+<div class="line"><div class="d"><b>01 · Rebrand the logo.</b><small>Evolved from the mark you've carried for fifty years — modernized, never erased. It should look like the company it represents.</small></div></div>
+<div class="line"><div class="d"><b>02 · Redesign the website, entirely.</b><small>From a blog that hides your fleet to a catalog that sells it — every stage and production service specced, every page funneling to a quote.</small></div></div>
+<div class="line"><div class="d"><b>03 · Start with the Mission retainer.</b><small>Of our four plans — Crew, Mission, Command, Empire — Mission is the right starting point: big enough to run the growth engine, right-sized to how you work.</small></div></div>
+</div>
+<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:16px">
+<a class="btn" href="https://avantgardelaunchpad.com/plans">Review all plans &amp; pricing →</a>
+<span style="color:var(--mut);font-size:13px">Published rates — the same for every Launchpad client.</span>
+</div>
+
+<div class="rule" style="margin-top:22px">
+<div class="klabel">How to think about this cost</div>
+<p>Year one of everything — brand, website, content, ads management, outreach, and a working sales engine — costs about what <b>one entry-level hire</b> would: a first-job college grad at $40–50K a year, plus payroll taxes, before their first day of real experience.</p>
+<div class="big" style="font-size:30px;margin-top:10px">One junior salary. An entire creative operation.</div>
+<p style="margin-top:10px">And here's the real difference: a salary is an expense that comes out of your pocket every month, no matter what. The concert partnership flips that: <b>the work we bring funds the entire program — executed to plan, you never come out of pocket at all. You make money.</b> We're bringing business to your business from day one — and the full breakdown, every number, month by month, lives on the <b>Payment Plan</b> tab. It's the path we recommend, and the most affordable way to walk it.</p>
+</div>
+
+<div style="margin-top:30px"><a class="btn" href="#" onclick="showTab('tabmission');return false;">Next: The Mission →</a></div>
+</div>
+
+<div class="tabpanel" id="tabmission">
+<h1>The <span class="r">Mission.</span></h1>
+<p class="lead">Your monthly growth engine — seven jobs, one team, every month. This is what the retainer actually does before we talk about a single number.</p>
+<div class="waterline"></div>
+
+<div class="grid2" style="margin-top:16px">
+<div class="jobcard"><div class="klabel">Job 01</div><h3>Your brand, live every day</h3><p class="j">You never think about what to post again — designed, written, captioned, and scheduled, a year of showing up the way a fifty-year company should.</p><ul><li>Monthly production: posts, stories, reel covers, captions, hashtags, scheduling</li><li>Proof-of-work content from your real events — load-ins, timelapses, then-and-now</li></ul></div>
+<div class="jobcard"><div class="klabel">Job 02</div><h3>Getting found</h3><p class="j">When somebody types “stage rental Miami” or “concert production Miami,” the goal is simple: you're the obvious answer — and the reviews back it up.</p><ul><li>Google Business Profile rebuilt + managed weekly — stages and production services listed as products</li><li>Review engine — target 25+ by October, 40+ by year-end</li><li>Every directory listing corrected so the whole internet agrees on who you are</li></ul></div>
+<div class="jobcard"><div class="klabel">Job 03</div><h3>Going &amp; getting work</h3><p class="j">We don't wait for the phone — we go to the exact buyers in South Florida who book stages and full event production.</p><ul><li>50 years of past clients into a working database + reactivation campaign</li><li>150–200 named targets — cities, festivals, fairs, promoters, planners — sequences + call blocks</li><li>Printed fleet lookbook to the top 100 buyers; qualified conversations handed to your team</li></ul></div>
+<div class="jobcard"><div class="klabel">Job 04</div><h3>Government &amp; bids</h3><p class="j">City budgets turn over October 1. We get you registered everywhere now, so solicitations land in our inbox — not a competitor's.</p><ul><li>Vendor registration: Miami-Dade, Hialeah, Broward, Fort Lauderdale + county film offices</li><li>Weekly RFP monitoring across every portal, all season, with bid-response support</li></ul></div>
+<div class="jobcard"><div class="klabel">Job 05</div><h3>Paid reach — when it's earned</h3><p class="j">Ads turn on only once the funnel is proven, aimed straight at the season — and every media dollar goes to Google, not to us.</p><ul><li>Search + remarketing on buyer keywords, tuned weekly</li><li>Dedicated landing pages per stage, production service, and market · media billed at cost</li></ul></div>
+<div class="jobcard"><div class="klabel">Job 06</div><h3>A website that keeps growing</h3><p class="j">The site you saw is version one. By spring it's a catalog Google can't ignore — every stage, every market, every question answered.</p><ul><li>Ongoing updates, fixes, and new pages every month</li><li>Spec pages for all 7 stages + every production service, city market pages, resources hub, case studies</li></ul></div>
+<div class="jobcard" style="grid-column:1/-1"><div class="klabel">Job 07</div><h3>The scoreboard — you see what we see</h3><p class="j">Every month you get the same numbers we look at: calls, quotes, leads by source, bookings, revenue. At renewal, the scoreboard makes the decision — not a sales pitch.</p><ul><li>Monthly one-page report in your Mission Control portal + strategy call · tracked phone number and forms so every lead has a source · quarterly plan adjustments</li></ul></div>
+</div>
+
+<div style="margin-top:30px"><a class="btn" href="#" onclick="showTab('tabprogram');return false;">Next: Program &amp; Investment →</a></div>
+</div>
+
+<div class="tabpanel" id="tabprogram">
+<h1>The program &<br>the <span class="r">investment.</span></h1>
+<p class="lead">Everything shown — the new identity, the 21-page website, and the Mission that runs it for the next year.</p>
+<div class="waterline"></div>
+
+<h2>Standard-Based Pricing <span style="font-size:14px;color:var(--mut);font-family:'Archivo';font-weight:600;letter-spacing:0;text-transform:none">· the program, itemized</span></h2>
+<div class="card">
+<div class="line"><div class="d"><b>Brand Identity</b><small>The sundown-spotlight mark + full system: logo suite, palette, typography, usage kit</small></div><div class="p">$5,000</div></div>
+<div class="line"><div class="d"><b>Website — Bespoke Build</b><small>21 pages · stage-by-stage web specs · 3D stage viewer · quote funnel · mobile-hardened · launch (forms, redirects, analytics)</small></div><div class="p">$10,000</div></div>
+<div class="line"><div class="d"><b>Mission — the monthly engine</b><span class="chip">Your plan</span><small>4 blog posts · 20 social posts + 8 reels · 1 monthly content shoot (your pick) · GBP + email · bi-weekly strategy calls</small></div><div class="p">$5,000/mo × 12</div></div>
+<div class="line total"><div class="d"><b>Year one — standard pricing</b></div><div class="p">$75,000</div></div>
+</div>
+
+<div style="margin-top:14px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+<a class="btn" href="https://avantgardelaunchpad.com/plans" style="font-size:13.5px;padding:10px 18px">Standardized pricing &amp; packages →</a>
+<span style="color:var(--mut);font-size:12.5px">For reference — published for every Launchpad client.</span>
+</div>
+
+<h2 style="font-size:clamp(30px,5.4vw,44px);line-height:1.06;margin-top:36px"><span style="color:var(--coral)">50% off</span> if you commit to one of our retainer plans</h2>
+<div class="rule">
+<div class="klabel">Our published rule</div>
+<p>Commit to twelve months of Mission and the launch work — brand + website — is <b>half off.</b></p>
+<div class="line" style="margin-top:6px"><div class="d"><b>Brand Identity</b><small>50% off with your retainer commitment</small></div><div class="p"><s class="oldp">$5,000</s>$2,500</div></div>
+<div class="line"><div class="d"><b>Website — Bespoke Build</b><small>50% off with your retainer commitment</small></div><div class="p"><s class="oldp">$10,000</s>$5,000</div></div>
+<div class="line"><div class="d"><b>Mission — the monthly engine</b><small>unchanged</small></div><div class="p">$5,000/mo × 12</div></div>
+<div class="line total"><div class="d"><b>Year one — with your commitment</b></div><div class="p"><s class="oldp" style="font-size:16px">$75,000</s>$67,500</div></div>
+<p style="margin-top:12px">And here's the part that matters: <b>with the barter-powered payment plan, year one doesn't come out of your pocket</b> — the work we bring covers it. (See the Payment Plan tab.)</p>
+</div>
+
+<div style="margin-top:30px"><a class="btn" href="#" onclick="showTab('tabpay');return false;">Next: The Payment Plan →</a></div>
+</div>
+
+<div class="tabpanel" id="tabpay">
+<h1>The <span class="r">payment plan.</span></h1>
+<p class="lead">Exactly how year one gets paid — mostly by the work we bring you, not out of your pocket.</p>
+<div class="waterline"></div>
+
+<h2>How you pay for it — three steps</h2>
+<p class="lead" style="font-size:16px;margin-bottom:4px">The headline first, because it bears repeating: <b style="color:var(--sand)">the work we bring in funds this entire year's campaign.</b> The three steps are just the mechanics.</p>
+<div class="steps">
+<div class="step"><div class="n">STEP 1</div><div class="t">$2,500/mo.<br>Keeps the lights on.</div><p>Our work has hard costs too — fuel to your shoots, gear, the software and services this engine runs on. This covers those <b>minimum monthly expenses, regardless of barter</b>, so the engine never stops. Twelve checks, first one <b>August 1, 2026</b> — and the business we bring recoups every one of them.</p></div>
+<div class="step"><div class="n">STEP 2</div><div class="t">Your concerts pay the rest.</div><p>Every Underline show: your crew, delivery, and fuel are paid to you <b>in cash, off the top</b>. What each show earns after that — <b>≈ $13,800</b> — comes straight off the remaining <b>$37,500</b>.</p></div>
+<div class="step"><div class="n">STEP 3</div><div class="t">Paid off by September.<br>Then you keep 85%.</div><p>Once year one is clear, the split flips: <b>85% of every job we originate is yours</b> — about <b>$17,000 per show</b> at this scope. Our 15% is the commission for bringing it.</p></div>
+</div>
+
+<div class="eq">
+<div class="v hero">$67,500<small>Year one</small></div>
+<div class="op">=</div>
+<div class="v">$30,000<small>12 checks of $2,500</small></div>
+<div class="op">+</div>
+<div class="v">$37,500<small>≈ 3 concerts of margin</small></div>
+</div>
+
+<h2 class="pb">The payoff schedule — one concert a month</h2>
+<div class="card">
+<div class="bar">
+<div class="bartrack"><div class="seg s1">JUL</div><div class="seg s2">AUG</div><div class="seg s3">SEP</div></div>
+<div class="barlabels"><span>$37,500 balance at signing</span><span>Paid in full · September 2026</span></div>
+</div>
+<table>
+<tr><th>Concert</th><th>When</th><th>Credit</th><th>Balance left</th><th>Milestone</th></tr>
+<tr><td>At signing<span class="sm">Brand + site launch ≈ 2 weeks out</span></td><td>July '26</td><td class="num">—</td><td class="num">$37,500</td><td><span class="pill">Program starts</span></td></tr>
+<tr><td><b>Concert 1 — already booked</b></td><td>Jul 17–19</td><td class="num">+$13,800</td><td class="num">$23,700</td><td><span class="pill hot">Launch fee: paid</span></td></tr>
+<tr><td>Concert 2</td><td>August</td><td class="num">+$13,800</td><td class="num">$9,900</td><td>Almost clear</td></tr>
+<tr class="paidrow"><td><b>Concert 3</b></td><td>September</td><td class="num">+$9,900</td><td class="num">$0</td><td><b>YEAR ONE — PAID IN FULL</b></td></tr>
+<tr><td>Concerts 4–12</td><td>Oct – June</td><td class="num">—</td><td class="num">—</td><td><b>≈ $17,000 of every show is yours</b> (85%)</td></tr>
+</table>
+<p class="fine">Projection assumes one concert per month at the July scope ($20,000 production with the LED wall, ≈ $13,800 above crew &amp; delivery costs). Bigger months pay it off sooner, smaller months push it out — your one-page monthly statement always shows the live balance.</p>
+</div>
+
+<h2>What year one generates</h2>
+<div class="rule">
+<div class="klabel">The bottom line</div>
+<div class="big" style="font-size:34px;line-height:1.12">This one account funds the entire campaign — and nets you ≈ $70,000.</div>
+<p style="margin-top:10px">And that's the floor: it assumes we don't bring you <b>a single other client or event all year</b>. That is absolutely not the plan — it's just where the math starts.</p>
+</div>
+<div class="card">
+<div class="line"><div class="d"><b>Series revenue, year one</b><small>12 concerts × $20,000 — an account this partnership brought you</small></div><div class="p">$240,000</div></div>
+<div class="line"><div class="d">Your crew &amp; delivery costs<small>Paid to you in cash, every show, off the top</small></div><div class="p" style="color:var(--sand);font-size:19px">− $74,400</div></div>
+<div class="line"><div class="d">This entire program<small>Brand + website + 12 months of Mission — only $30,000 of it in cash</small></div><div class="p" style="color:var(--sand);font-size:19px">− $67,500</div></div>
+<div class="line"><div class="d">Launchpad's 15% on concerts after payoff<small>We only earn it once you're paid off — we profit when you profit</small></div><div class="p" style="color:var(--sand);font-size:19px">− ≈ $28,000</div></div>
+<div class="line total"><div class="d"><b>Net new profit to Reflections</b><small>From one account you didn't have before — at the minimum pace</small></div><div class="p">≈ $70,000+</div></div>
+<p class="fine" style="margin-top:12px"><b style="color:var(--sand)">*</b> The Levitt grant commits The Underline to one concert a month for <b style="color:var(--sand)">three years</b>. These numbers assume year one only, at the same budget realm as Concert #1 — and one concert a month is the <b style="color:var(--sand)">minimum</b> pace. This agreement covers year one; before year two, we sit down with a year of real numbers and shape the next year together.<br><b style="color:var(--sand)">*</b> The series is also just one account: The Underline produces galas, community events, and productions of every size — speaker setups, DJ rigs, small stages. None of that opportunity is counted above.</p>
+</div>
+
+<div class="card">
+<div class="klabel">The ground rules</div>
+<ul>
+<li>Credit is earned when a concert happens and is invoiced — never on promises, in either direction.</li>
+<li>Your hard costs are never floated: crew, delivery, fuel — paid in cash, every event, off the top. Same goes for us — our hard costs to provide these services are never floated either; that's exactly what the monthly covers.</li>
+<li>You get a one-page statement every month — credits earned, balance left, what's next — inside your own Mission Control portal on the Launchpad.</li>
+<li>The commitment is <b>$5,000 a month for twelve months</b> — the concerts change how it's paid, never what it is. In a month with no concert margin to draw on, the monthly is simply paid in cash. We build at full power from day one — and we commit to that speed and scale for all twelve months.</li>
+</ul>
+<p class="fine">Ad media (at cost, when the ads phase begins) and print/postage for mail campaigns are billed separately · trade credits are booked at fair value by both accountants — standard practice.</p>
+</div>
+
+<div style="margin-top:30px"><a class="btn" href="#" onclick="showTab('tabalacarte');return false;">Next: À La Carte →</a></div>
+</div>
+
+<div class="tabpanel" id="tabalacarte">
+<h1>Bring the brand <span class="r">to life.</span></h1>
+<p class="lead">À la carte, anytime — and because you're a retainer client, everything below is <b style="color:var(--sand)">30% off</b> our published rates.</p>
+<div class="waterline"></div>
+<div class="rule" style="margin-top:4px">
+<div class="klabel">Already included in your Mission</div>
+<p><b>One content shoot every month is already in your retainer — your pick, no extra cost.</b> Everything below is optional add-on firepower for the moments you want more — at 30% off, because you're a retainer client.</p>
+</div>
+
+<div class="card grid2" style="display:grid">
+<div>
+<div class="line"><div class="d">Event-day photo coverage<small>half-day · up to 4 hrs · highlights in 24 hrs</small></div><div class="p" style="font-size:18px"><s class="oldp">$2,500</s>$1,750</div></div>
+<div class="line"><div class="d">Event-day video coverage<small>half-day · up to 4 hrs · 6K cinema capture</small></div><div class="p" style="font-size:18px"><s class="oldp">$2,800</s>$1,960</div></div>
+<div class="line"><div class="d">Event-day photo + video bundle<small>half-day · both teams, one crew call</small></div><div class="p" style="font-size:18px"><s class="oldp">$4,500</s>$3,150</div></div>
+<div class="line"><div class="d">Drone coverage<small>2 hrs · FAA-licensed pilot · video + stills</small></div><div class="p" style="font-size:18px"><s class="oldp">$1,400</s>$980</div></div>
+<div class="line"><div class="d">360 booth activation<small>2 hrs · operator included</small></div><div class="p" style="font-size:18px"><s class="oldp">$1,500</s>$1,050</div></div>
+<div class="line"><div class="d">Live streaming package<small>half-day · up to 4 hrs</small></div><div class="p" style="font-size:18px"><s class="oldp">$2,000</s>$1,400</div></div>
+</div>
+<div>
+<div class="line"><div class="d">Team headshots<small>per person, per look</small></div><div class="p" style="font-size:18px"><s class="oldp">$150</s>$105</div></div>
+<div class="line"><div class="d">50th-anniversary brand film</div><div class="p" style="font-size:18px"><s class="oldp">$6,500+</s>$4,550+</div></div>
+<div class="line"><div class="d">Short-form reel package</div><div class="p" style="font-size:18px"><s class="oldp">$2,500+</s>$1,750+</div></div>
+<div class="line"><div class="d">Brand Launch Kit — tees, hats, flags, cards, decals<small>design included · production at cost +15%</small></div><div class="p" style="font-size:18px">quoted</div></div>
+</div>
+</div>
+<p class="fine" style="margin-top:10px">Retainer-client rate: 30% off our published rates (avantgardemedia.com/pricing) any time during your Mission term. Full-day and hourly options carry the same 30% off. Anniversary film and reel package quoted from scope; figures shown are typical starting points.</p>
+
+<div style="margin-top:30px"><a class="btn" href="#" onclick="showTab('tabnext');return false;">Next: What Happens Now →</a></div>
+</div>
+
+<div class="tabpanel" id="tabnext">
+<h1>What happens <span class="r">now.</span></h1>
+<p class="lead">The moment you say yes, a sequence starts. Here's the first sixty days, step by step.</p>
+<div class="waterline"></div>
+
+<div class="card"><div class="klabel">Right now</div><p style="font-size:14.5px;color:#dfece8;margin-top:4px"><b style="color:var(--sand)">Say yes.</b> Sign on the Agreement tab — or reply “approved” and we countersign the same day. Concert #1 is this Friday, so the partnership starts paying for the program the very same weekend.</p></div>
+
+<div class="card"><div class="klabel">Week 1 — Kickoff</div><p style="font-size:14.5px;color:#dfece8;margin-top:4px">We meet again and lock the foundation: <b style="color:var(--sand)">finalize the logo</b> (pick the winning concept, we deliver the full brand files), final content pass on the website together, and access handoff — domain, Google Business Profile, social accounts, analytics. We also shoot Concert #1 for launch content.</p></div>
+
+<div class="card"><div class="klabel">Week 2 — The website goes live</div><p style="font-size:14.5px;color:#dfece8;margin-top:4px">The new site launches: quote funnel and forms wired, tracked phone number and analytics on, old links redirected so fifty years of Google equity carries over. <b style="color:var(--sand)">Brand identity files delivered.</b></p></div>
+
+<div class="card"><div class="klabel">Weeks 3–4 — The announcement</div><p style="font-size:14.5px;color:#dfece8;margin-top:4px">We plan the reveal together, then run it: <b style="color:var(--sand)">“The New Reflections”</b> — the announcement wave on social, the 50-years story told properly, and an email to past clients reintroducing the company. Behind the scenes: Google Business Profile rebuilt, the review engine starts, vendor registrations filed with every city portal before FY27 solicitations post.</p></div>
+
+<div class="card"><div class="klabel">Month 2 onward — The Mission rhythm</div><p style="font-size:14.5px;color:#dfece8;margin-top:4px">The engine settles into its cadence: monthly content shoot, posts and reels on schedule, outreach waves to the named buyer list, weekly bid monitoring, ads when the funnel has earned them — and the <b style="color:var(--sand)">monthly scoreboard</b> in your Mission Control portal, plus bi-weekly strategy calls, so you always see what we see.</p></div>
+
+<div class="mathstrip" style="margin:18px 0 0;background:var(--pan);border:1px solid rgba(63,167,150,.3);color:var(--sand);padding:12px 16px;text-align:center;font-size:13.5px;border-radius:12px">Site live ≈ 2 weeks from signing · Brand reveal by week 4 · First scoreboard 30 days after launch</div>
+
+<div style="margin-top:30px"><a class="btn" href="#" onclick="showTab('tabagree');return false;">Next: The Agreement →</a></div>
+</div>
+
+<div class="tabpanel" id="tabagree">
+<h1>The <span class="r">agreement.</span></h1>
+<p class="lead">Twelve months, everything we've walked through, in plain language. Sign below — typed or drawn — then save the PDF for your records. Full standing policies live at <b style="color:var(--tealb)">avantgardelaunchpad.com/terms</b>; this document reflects them.</p>
+<div class="waterline"></div>
+
+<div class="card"><div class="klabel">01 · Parties &amp; term</div><p style="font-size:13.5px;color:#dfece8;margin-top:4px;line-height:1.55">This Services Agreement is between <b>Avant Garde Launchpad</b> (Avant Garde Media — “AGL”) and <b>Reflections Productions Inc</b> (“Client”), effective on the date of the last signature below. Initial term: <b>twelve (12) months</b>. Before renewal, the parties hold a year-two review built on the monthly scoreboard. After month 12 the agreement auto-renews month-to-month at the same rate unless either party gives 30 days' written notice.</p></div>
+
+<div class="card"><div class="klabel">02 · Scope</div><p style="font-size:13.5px;color:#dfece8;margin-top:4px;line-height:1.55"><b>Launch work:</b> Brand Identity (logo suite, palette, typography, usage kit) and Bespoke Website build (21 pages, stage + production-service spec pages, 3D stage viewer, quote funnel, launch: forms, redirects, analytics). <b>Mission retainer, monthly:</b> 4 blog posts · 20 social posts + 8 reels · 1 content shoot (Client's pick) · Google Business Profile + email management · outreach, bid monitoring, and reporting per the Mission tab · bi-weekly strategy calls. Work outside scope (rush turnaround, new builds, strategic projects) is quoted first as a change order, approved in writing, then billed — nothing is a surprise.</p></div>
+
+<div class="card"><div class="klabel">03 · Investment</div><p style="font-size:13.5px;color:#dfece8;margin-top:4px;line-height:1.55">Standard pricing: Brand Identity $5,000 + Bespoke Website $10,000 + Mission $5,000/month × 12 = <b>$75,000</b>. With the twelve-month retainer commitment, launch work is 50% off per AGL's published rule: <b>launch $7,500 · year one $67,500</b>.</p></div>
+
+<div class="card"><div class="klabel">04 · Payment &amp; the barter structure</div><p style="font-size:13.5px;color:#dfece8;margin-top:4px;line-height:1.55"><b>(a) Cash:</b> $2,500/month, first payment August 1, 2026, then the same calendar day monthly; due on invoice. <b>(b) Trade credits:</b> the remaining balance — $7,500 launch + $2,500/month = $37,500 for year one — is payable in trade credits earned on AGL-originated production jobs (including The Underline concert series). Per job: Client's documented hard costs (crew labor, delivery, fuel at actual) are paid to Client <b>in cash, off the top</b>, within five (5) business days of AGL receiving the event payment; the margin above hard costs credits against Client's balance until the $37,500 is fully funded; thereafter Client retains <b>85%</b> of collected gross on AGL-originated jobs and AGL receives a <b>15% origination commission</b>. <b>(c)</b> Credits are earned on completed and invoiced events only; if the $7,500 launch portion is not fully covered by credits within ninety (90) days of signing, the unfunded launch balance is invoiced in cash. <b>(d)</b> AGL issues a monthly statement and credit memo in Client's Mission Control portal. <b>(e)</b> The $5,000 monthly commitment is unconditional and scope never reduces: in any month where earned credit does not cover the $2,500 barter portion, the difference is due in cash. <b>(f)</b> Trade is recorded at fair market value; each party is responsible for its own tax reporting. <b>(g)</b> AGL-originated events run under Client's standard production terms, except deposit and prepayment terms, which this agreement supersedes.</p></div>
+
+<div class="card"><div class="klabel">05 · À la carte, media &amp; travel</div><p style="font-size:13.5px;color:#dfece8;margin-top:4px;line-height:1.55">Client receives <b>30% off published à la carte rates</b> for the full term. Ad media is billed at cost as a separate pass-through (no markup) once the ads phase begins. Merch and print production at cost +15%, design included. Travel within 30 miles of Miami is included; beyond that, travel bills at $1/mile round-trip, lodging at cost, and a $75/day per diem.</p></div>
+
+<div class="card"><div class="klabel">06 · Plan changes</div><p style="font-size:13.5px;color:#dfece8;margin-top:4px;line-height:1.55">Per published policy: <b>upgrade any time; downgrade only at renewal.</b> The twelve-month commitment applies to the Mission tier or above.</p></div>
+
+<div class="card"><div class="klabel">07 · Early cancellation</div><p style="font-size:13.5px;color:#dfece8;margin-top:4px;line-height:1.55">Why twelve months: growth compounds — one month of marketing doesn't change anything, and the launch discount is priced on the full-year commitment. <b>Convenience cancellation before month 12:</b> remaining months become due at the non-discounted rate and the launch discount ($7,500 differential) becomes payable; credits already earned still count. <b>Major life events</b> (business closure or sale, owner illness, force majeure) are handled case-by-case — pause and re-engage preferred; we don't sue clients. <b>AGL</b> may terminate for material breach, including non-payment past 30 days. Late payments follow AGL's published ladder: reminder at 5 days · 1.5%/month at 15 · suspension at 30 · termination and collections at 60+ · $50 NSF per returned payment.</p></div>
+
+<div class="card"><div class="klabel">08 · Ownership</div><p style="font-size:13.5px;color:#dfece8;margin-top:4px;line-height:1.55"><b>Client owns the work:</b> final brand identity files, website code and assets, edited photos, finished videos, published copy — perpetual usage rights, originals delivered quarterly, and full handoff of everything if the relationship ever ends. AGL retains raw files and source materials (licensable separately at published rates) and the right to showcase the work in its portfolio and case studies (mutual NDA addendum available on request).</p></div>
+
+<div class="card"><div class="klabel">09 · Confidentiality, access &amp; force majeure</div><p style="font-size:13.5px;color:#dfece8;margin-top:4px;line-height:1.55">Client data is never sold or shared. AGL receives working admin access (site, Google Business Profile, socials, analytics, ad platforms) for the term; access is removed at contract end; any security incident is disclosed within 24 hours. Force majeure (natural disaster, mandated closures, infrastructure outage, government acts): the affected party notifies within 48 hours, obligations and billing pause, and either party may exit without penalty if the event continues 60+ days.</p></div>
+
+<div class="card"><div class="klabel">10 · General</div><p style="font-size:13.5px;color:#dfece8;margin-top:4px;line-height:1.55">Targets and projections in the accompanying tabs are models, not guarantees — the monthly scoreboard reports actuals. AGL's liability is capped at fees paid in the preceding three months. Governing law: Florida; venue Miami-Dade County (courts or binding arbitration in Miami). Typed, drawn, or electronic signatures are binding. This agreement, together with the Mission, Payment Plan, and À La Carte tabs it accompanies, is the entire agreement; standing policies are published at avantgardelaunchpad.com/terms.</p></div>
+
+<h2 style="margin-top:34px">Signatures</h2>
+<div class="grid2">
+<div class="sigblock">
+<div class="klabel">For Reflections Productions Inc — “Client”</div>
+<div class="sigrow"><label>Name</label><input class="siginput" id="cname" placeholder="Full name"></div>
+<div class="sigrow"><label>Title</label><input class="siginput" id="ctitle" placeholder="Title"></div>
+<div class="sigrow"><label>Date</label><input class="siginput sigdate" id="cdate"></div>
+<div class="sigrow"><label>Type to sign</label><input class="siginput sigscript" id="ctyped" placeholder="Type full name"></div>
+<div class="sigrow"><label>Or draw it</label></div>
+<canvas class="sig" id="csig" width="460" height="110"></canvas>
+<button class="clearbtn printhide" onclick="clearSig('csig');return false;">Clear signature</button>
+</div>
+<div class="sigblock">
+<div class="klabel">For Avant Garde Launchpad — “AGL”</div>
+<div class="sigrow"><label>Name</label><input class="siginput" id="aname" value="Jonathan Arroyo"></div>
+<div class="sigrow"><label>Title</label><input class="siginput" id="atitle" value="Founder"></div>
+<div class="sigrow"><label>Date</label><input class="siginput sigdate" id="adate"></div>
+<div class="sigrow"><label>Type to sign</label><input class="siginput sigscript" id="atyped" value="Jonathan Arroyo"></div>
+<div class="sigrow"><label>Signature</label></div>
+<canvas class="sig" id="asig" width="460" height="110"></canvas>
+<button class="clearbtn printhide" onclick="clearSig('asig');return false;">Clear signature</button>
+</div>
+</div>
+
+<div class="card agreecard" style="margin-top:16px">
+<label><input type="checkbox" id="agreechk" style="margin-top:3px"> Both parties have read and agree to the terms above. Typed or drawn signatures on this page are accepted as binding. Avant Garde Launchpad has pre-executed its signature; this agreement completes when the Client signs and saves below.</label>
+<div class="printhide" style="margin-top:14px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+<a class="btn" href="#" onclick="savePDF();return false;">Sign &amp; save the executed copy (PDF) →</a>
+<span id="agreewarn">Check the agreement box above first.</span>
+</div>
+<div class="printhide" style="margin-top:10px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+<span id="notifystatus" style="font-size:12.5px;color:var(--mut)"></span>
+</div>
+<p class="fine printhide" style="margin-top:10px">Saving opens your print dialog — choose “Save as PDF.” Avant Garde Launchpad is notified automatically the moment you sign. For everyone's records, please also email the saved PDF: <a href="mailto:jonathan@avantgardelaunchpad.com?subject=Signed%20-%20Reflections%20x%20Avant%20Garde%20Launchpad%20Agreement&body=Signed%20copy%20attached." style="color:var(--tealb);font-weight:700">email the signed copy →</a></p>
+</div>
+</div>
+
+<div class="foot">
+<div>Prepared for <b>Reflections Productions Inc</b> · July 2026<br>Jonathan Arroyo · Avant Garde Launchpad · jonathan@avantgardelaunchpad.com<br><span style="color:var(--sand)">Ready to lock it in? Sign on the <b>Agreement</b> tab and save your PDF — or reply <b>“approved”</b> and we'll countersign the same day. Concert #1 is already on the calendar.</span></div>
+<div style="text-align:right"><span class="est">50 Years · Est. 1975</span><br>Pricing honored through July 31, 2026</div>
+</div>
+</div>
+<script>
+function showTab(id){
+  document.querySelectorAll('.tabpanel').forEach(function(p){p.classList.toggle('active',p.id===id)});
+  document.querySelectorAll('.tabbtn').forEach(function(b){b.classList.toggle('active',b.dataset.tab===id)});
+  window.scrollTo(0,0);
+}
+/* signature pads */
+function initSig(c){
+  var ctx=c.getContext('2d');
+  ctx.lineWidth=2.2;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle='#13312c';
+  var down=false;
+  function pos(e){var r=c.getBoundingClientRect();return[(e.clientX-r.left)*(c.width/r.width),(e.clientY-r.top)*(c.height/r.height)];}
+  c.addEventListener('pointerdown',function(e){down=true;var p=pos(e);ctx.beginPath();ctx.moveTo(p[0],p[1]);ctx.lineTo(p[0]+0.1,p[1]+0.1);ctx.stroke();try{c.setPointerCapture(e.pointerId);}catch(x){}e.preventDefault();});
+  c.addEventListener('pointermove',function(e){if(!down)return;var p=pos(e);ctx.lineTo(p[0],p[1]);ctx.stroke();e.preventDefault();});
+  c.addEventListener('pointerup',function(){down=false;});
+  c.addEventListener('pointercancel',function(){down=false;});
+  c.addEventListener('pointerleave',function(e){if(down&&e.buttons===0)down=false;});
+}
+var sigDrawn={csig:false,asig:false};
+document.querySelectorAll('canvas.sig').forEach(function(c){initSig(c);c.addEventListener('pointerdown',function(){sigDrawn[c.id]=true;});});
+function clearSig(id){var c=document.getElementById(id);c.getContext('2d').clearRect(0,0,c.width,c.height);sigDrawn[id]=false;if(id==='asig')preSignAGL();}
+/* auto date */
+document.querySelectorAll('.sigdate').forEach(function(i){if(!i.value)i.value=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});});
+/* pre-executed AGL signature */
+function preSignAGL(){
+  var c=document.getElementById('asig');if(!c)return;
+  var x=c.getContext('2d');
+  x.font='46px "Brush Script MT","Segoe Script","Snell Roundhand",cursive';
+  x.fillStyle='#13312c';x.fillText('Jonathan Arroyo',26,70);
+  sigDrawn.asig=true;
+}
+preSignAGL();
+/* sign, notify AGL, save pdf */
+function savePDF(){
+  var w=document.getElementById('agreewarn');
+  if(!document.getElementById('agreechk').checked){w.textContent='Check the agreement box above first.';w.style.display='inline';return;}
+  var cname=document.getElementById('cname').value.trim();
+  var csigned=document.getElementById('ctyped').value.trim()!==''||sigDrawn.csig;
+  if(!cname||!csigned){w.textContent='Add the Client name and a typed or drawn signature first.';w.style.display='inline';return;}
+  w.style.display='none';
+  notifyAGL();
+  showTab('tabagree');
+  setTimeout(function(){window.print();},250);
+}
+function notifyAGL(){
+  var s=document.getElementById('notifystatus');
+  s.textContent='Notifying Avant Garde Launchpad…';
+  var payload={
+    _subject:'SIGNED: Reflections x AGL 12-Month Agreement',
+    _template:'table',
+    _captcha:'false',
+    client_name:document.getElementById('cname').value,
+    client_title:document.getElementById('ctitle').value,
+    client_date:document.getElementById('cdate').value,
+    client_typed_signature:document.getElementById('ctyped').value,
+    client_drew_signature:sigDrawn.csig?'yes':'no',
+    agl_signer:document.getElementById('aname').value+' ('+document.getElementById('atitle').value+')',
+    signed_at:new Date().toString(),
+    agreement:'Reflections Productions x Avant Garde Launchpad — 12-Month Mission + Barter Structure, year one $67,500'
+  };
+  if(sigDrawn.csig){try{payload.client_signature_image=document.getElementById('csig').toDataURL('image/png');}catch(e){}}
+  fetch('https://formsubmit.co/ajax/jonathan@avantgardelaunchpad.com',{
+    method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify(payload)
+  }).then(function(r){if(!r.ok)throw 0;s.textContent='✓ Avant Garde Launchpad has been notified of your signature.';})
+  .catch(function(){s.textContent='Auto-notification could not send from this device — please use the “email the signed copy” link below so AGL has your executed copy.';});
+}
+</script>
+</body></html>
